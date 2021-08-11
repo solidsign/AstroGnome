@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 5185575751084018010}
   - component: {fileID: 8122064963107472268}
   - component: {fileID: -7446648542200081202}
+  - component: {fileID: 5197020705709404156}
+  - component: {fileID: 8796192146486726451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -221,3 +223,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 637dcd7af0689ab46a34ea414783be6f, type: 2}
   colorChangeSpeed: 1
+--- !u!114 &5197020705709404156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687496867986344557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427ff79c151b801489a305d82d2da9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+--- !u!114 &8796192146486726451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687496867986344557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732847bca1912f846b0b7d250a6ff87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentsToDisable:
+  - {fileID: 5185575751084018010}
+  - {fileID: 6969587409914681152}
+  - {fileID: 5687496867986344551}
+  - {fileID: 5197020705709404156}
