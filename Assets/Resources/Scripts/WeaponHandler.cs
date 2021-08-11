@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
-    public List<Weapon> weapons;
+    [SerializeField] private List<Weapon> weapons;
     private WeaponSwitcher switcher;
+
+    public List<Weapon> Weapons => weapons;
 
     private void Start()
     {

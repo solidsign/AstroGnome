@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ColorSwitcher : MonoBehaviour
@@ -8,18 +7,14 @@ public class ColorSwitcher : MonoBehaviour
     [SerializeField] private Material material;
     [SerializeField] private float colorChangeSpeed;
 
-    private void Update()
+    public void SwitchColor(Color newColor)
     {
-        
+        StopCoroutine(LerpColor());
+        currentColor = newColor;
+        StartCoroutine(LerpColor());
     }
 
-    public void SwitchColor()
-    {
-        StopCoroutine(ChangeColor());
-        StartCoroutine(ChangeColor());
-    }
-
-    private IEnumerator ChangeColor()
+    private IEnumerator LerpColor()
     {
         while(material.GetColor("_color") != currentColor)
         {

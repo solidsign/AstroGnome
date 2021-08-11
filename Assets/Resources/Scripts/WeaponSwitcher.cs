@@ -5,6 +5,7 @@ public class WeaponSwitcher : MonoBehaviour
     private int activeWeapon;
     private int amountOfWeapons;
     private ColorSwitcher color;
+    private WeaponHandler handler;
     public int ActiveWeapon
     {
         get => activeWeapon;
@@ -23,12 +24,13 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void Start()
     {
-        WeaponHandler handler = GetComponent<WeaponHandler>();
-        amountOfWeapons = handler.weapons.Count;
-        colors = GetComponent<ColorSwitcher>();
+        handler = GetComponent<WeaponHandler>();
+        amountOfWeapons = handler.Weapons.Count;
+        color = GetComponent<ColorSwitcher>();
     }
     public void SwitchWeapon()
     {
         ++ActiveWeapon;
+        color.SwitchColor(handler.Weapons[ActiveWeapon].Color);
     }
 }
