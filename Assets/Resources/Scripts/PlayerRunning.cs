@@ -22,10 +22,29 @@ public class PlayerRunning : MonoBehaviour
             run = (velocity.magnitude != 0f);
             animator.SetBool("Run", run);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Hit");
+        }
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition((Vector2)transform.position + speed * Time.fixedDeltaTime *  velocity);
+    }
+
+    public void DisableRunning()
+    {
+        animator.SetBool("Run", false);
+        enabled = false;
+    }
+
+    public void EnableRunning()
+    {
+        enabled = true;
+        velocity.x = Input.GetAxis("Horizontal");
+        velocity.y = Input.GetAxis("Vertical");
+        run = (velocity.magnitude != 0f);
+        animator.SetBool("Run", run);
     }
 }
