@@ -22,10 +22,6 @@ public class PlayerRunning : MonoBehaviour
             run = (velocity.magnitude != 0f);
             animator.SetBool("Run", run);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetTrigger("Hit");
-        }
     }
 
     private void FixedUpdate()
