@@ -28,6 +28,7 @@ public class WeaponSwitcher : MonoBehaviour
         amountOfWeapons = handler.Weapons.Count;
         color = GetComponent<ColorSwitcher>();
     }
+
     public void SwitchWeapon()
     {
         ++ActiveWeapon;
