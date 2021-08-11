@@ -13,23 +13,25 @@ public class CheatHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown)
+        if (!Input.anyKeyDown)
         {
-            for (int i = 0; i < cheats.Count; i++)
+            return;
+        }
+
+        for (int i = 0; i < cheats.Count; i++)
+        {
+            if(Input.GetKeyDown(cheats[i].Keys[submitProgress[i]]))
             {
-                if(Input.GetKeyDown(cheats[i].Keys[submitProgress[i]]))
-                {
-                    ++submitProgress[i];
-                    if(submitProgress[i] >= cheats[i].Keys.Count)
-                    {
-                        submitProgress[i] = 0;
-                        cheats[i].CheatEvent.Invoke();
-                    }
-                }
-                else
+                ++submitProgress[i];
+                if(submitProgress[i] >= cheats[i].Keys.Count)
                 {
                     submitProgress[i] = 0;
+                    cheats[i].CheatEvent.Invoke();
                 }
+            }
+            else
+            {
+                submitProgress[i] = 0;
             }
         }
     }
