@@ -17,6 +17,14 @@ public class Crosshair : MonoBehaviour
         }
     }
 
+    public Quaternion AttackDirection
+    {
+        get
+        {
+            return Quaternion.FromToRotation(transform.position + centerOffset, AttackPoint);
+        }
+    }
+
     private void Start()
     {
         cam = Camera.main;
