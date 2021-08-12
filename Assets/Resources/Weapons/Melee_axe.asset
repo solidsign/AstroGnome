@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f9ee56e9cf24b49bc6680764df1b55, type: 3}
   m_Name: Melee_axe
   m_EditorClassIdentifier: 
-  color: {r: 0.9339623, g: 0.38565075, b: 0, a: 0}
+  color: {r: 0.93333334, g: 0.37834066, b: 0, a: 0}
   attackEvent:
     m_PersistentCalls:
       m_Calls:

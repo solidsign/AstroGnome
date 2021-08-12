@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 11400000, guid: bb3bf4bedc81b7e42b7b9d7b558400b0, type: 2}
+  - {fileID: 11400000, guid: 28c6c5b77037f7743979ff70d7311c1f, type: 2}
 --- !u!114 &5185575751084018010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64f255867cd9484fb06dd82709be54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startIntensivity: 1.5
+  intensivityMultipliyer: 1.2
   material: {fileID: 2100000, guid: 637dcd7af0689ab46a34ea414783be6f, type: 2}
-  colorChangeSpeed: 1
+  colorChangeSpeed: 5
 --- !u!114 &5197020705709404156
 MonoBehaviour:
   m_ObjectHideFlags: 0

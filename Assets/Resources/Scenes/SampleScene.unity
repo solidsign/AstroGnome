@@ -422,6 +422,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7446648542200081202, guid: 9581167ba073cbb4f86a470be933ecfb,
+        type: 3}
+      propertyPath: colorChangeSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5687496867986344547, guid: 9581167ba073cbb4f86a470be933ecfb,
         type: 3}
       propertyPath: m_RootOrder
@@ -482,6 +487,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6969587409914681152, guid: 9581167ba073cbb4f86a470be933ecfb,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969587409914681152, guid: 9581167ba073cbb4f86a470be933ecfb,
+        type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 28c6c5b77037f7743979ff70d7311c1f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9581167ba073cbb4f86a470be933ecfb, type: 3}
 --- !u!1001 &6205850155847608006

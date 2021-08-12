@@ -4,36 +4,57 @@ using UnityEngine;
 public class ColorSwitcher : MonoBehaviour
 {
     private Color currentColor;
-    private float currentIntensity;
-    [SerializeField] private float defaultIntensity = 1.4f;
-    [SerializeField] private float intensityIncreaseNumber = 0.1f;
+    private Color colorWithIntensivity;
+    private float currentIntensivity;
+    [SerializeField] private float startIntensivity = 1.5f;
+    [SerializeField] private float intensivityMultipliyer = 1.1f;
     [SerializeField] private Material material;
     [SerializeField] private float colorChangeSpeed;
 
     private void Start()
     {
-        currentIntensity = defaultIntensity;
+        currentIntensivity = startIntensivity;
         currentColor = GetComponent<WeaponHandler>().Weapons[0].Color;
-        material.SetColor("_color", currentColor * currentIntensity);
+        material.SetColor("_color", currentColor * currentIntensivity);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            IncreaseIntensity();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ResetIntensity();
+        }
+    }
+
     public void SwitchColor(Color newColor)
     {
         StopCoroutine(LerpColor());
-        currentColor = newColor * currentIntensity;
+        currentColor = newColor;
+        colorWithIntensivity = currentColor * currentIntensivity;
         StartCoroutine(LerpColor());
     }
 
     public void IncreaseIntensity()
     {
-        currentIntensity += intensityIncreaseNumber;
+        currentIntensivity *= intensivityMultipliyer;
+        SwitchColor(currentColor);
+    }
+
+    public void ResetIntensity()
+    {
+        currentIntensivity = 1f;
         SwitchColor(currentColor);
     }
 
     private IEnumerator LerpColor()
     {
-        while(material.GetColor("_color") != currentColor)
+        while(material.GetColor("_color") != colorWithIntensivity)
         {
-            Color newColor = Color.Lerp(material.GetColor("_color"), currentColor, colorChangeSpeed * Time.deltaTime);
+            Color newColor = Color.Lerp(material.GetColor("_color"), colorWithIntensivity, colorChangeSpeed * Time.deltaTime);
 
             material.SetColor("_color", newColor);
 
