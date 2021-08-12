@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackRadius: 0.7
+  basicDamage: 1
+  comboMultiplier: 1.2
 --- !u!114 &-7446648542200081202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +260,11 @@ MonoBehaviour:
   - {fileID: 5185575751084018010}
   - {fileID: 6969587409914681152}
   - {fileID: 5687496867986344551}
+  - {fileID: -7446648542200081202}
+  - {fileID: 8122064963107472268}
   - {fileID: 5197020705709404156}
+  - {fileID: 2621231718847922893}
+  - {fileID: 3539866116012617658}
 --- !u!114 &3539866116012617658
 MonoBehaviour:
   m_ObjectHideFlags: 0
