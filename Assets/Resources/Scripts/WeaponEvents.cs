@@ -3,6 +3,8 @@
 public class WeaponEvents : MonoBehaviour
 {
     [SerializeField] private float meleeAttackRadius;
+    [SerializeField] private float basicDamage;
+    [SerializeField] private float comboMultiplier;
     private Crosshair crosshair;
     private Animator animator;
     private ComboHandler combo;
@@ -19,13 +21,15 @@ public class WeaponEvents : MonoBehaviour
         var colliders = Physics2D.OverlapCircleAll(crosshair.AttackPoint, meleeAttackRadius);
         foreach (var collider in colliders)
         {
-            Debug.Log(collider.name);
+            if (!collider.CompareTag("Player"))
+            {
+                EnemyHealth enemy;
+                if(collider.TryGetComponent<EnemyHealth>(out enemy))
+                {
+                    enemy.DealDamage(collider.transform.position - crosshair.AttackPoint, basicDamage * Mathf.Pow(comboMultiplier, combo.Combo));
+                }
+            }
         }
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(crosshair.AttackPoint, meleeAttackRadius);
-    //}
 }
