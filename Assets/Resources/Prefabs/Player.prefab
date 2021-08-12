@@ -211,7 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9542b47a83e30e49a4e114a7c850fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeAttackRadius: 0
+  meleeAttackRadius: 0.7
+  crosshair: {fileID: 3539866116012617658}
 --- !u!114 &-7446648542200081202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,5 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b93c913a71472841bcc531aa5a63366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromCenterToAttackPoint: 1
+  distanceFromCenterToAttackPoint: 0.67
   centerOffset: {x: 0, y: 0.5, z: 0}
+  pref: {fileID: 1005127127719034163, guid: cfa9dbb65ae9be0448a43bdd9c3cdb14, type: 3}

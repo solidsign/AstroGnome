@@ -5,7 +5,7 @@ public class Crosshair : MonoBehaviour
     [SerializeField] private float distanceFromCenterToAttackPoint;
     [SerializeField] private Vector3 centerOffset;
     private Camera cam;
-    private Vector3 mousePos;
+    private Vector3 mousePos = Vector3.zero;
 
     public GameObject pref;
 
@@ -26,14 +26,11 @@ public class Crosshair : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Instantiate(pref, AttackPoint, Quaternion.Euler(0, 0, 0));
-        }
     }
 
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position + centerOffset, distanceFromCenterToAttackPoint);
     }
 }
