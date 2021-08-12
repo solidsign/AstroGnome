@@ -6,6 +6,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private List<Weapon> weapons;
     private WeaponSwitcher switcher;
     private float cooldownTimer;
+    private Animator animator;
 
     public List<Weapon> Weapons => weapons;
 
@@ -13,6 +14,7 @@ public class WeaponHandler : MonoBehaviour
     {
         switcher = GetComponent<WeaponSwitcher>();
         cooldownTimer = 0f;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class WeaponHandler : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && cooldownTimer <= 0)
         {
-            weapons[switcher.ActiveWeapon].AttackEvent.Invoke();
+            animator.SetTrigger(weapons[switcher.ActiveWeapon].AnimationTrigger);
             cooldownTimer = weapons[switcher.ActiveWeapon].Cooldown;
         }
     }
