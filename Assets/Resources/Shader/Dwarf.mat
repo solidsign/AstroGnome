@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteWithHighlights
+  m_Name: Dwarf
   m_Shader: {fileID: -6465566751694194690, guid: 0ca406e558612bc4187354e138fc328f,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -30,4 +30,4 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _color: {r: 0.93333334, g: 0.37834066, b: 0, a: 1}
+    - _color: {r: 0.93332696, g: 0.37834498, b: 0.0000063183925, a: 1}
