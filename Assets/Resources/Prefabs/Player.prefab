@@ -16,12 +16,13 @@ GameObject:
   - component: {fileID: 5687496867986344551}
   - component: {fileID: 6969587409914681152}
   - component: {fileID: 5185575751084018010}
-  - component: {fileID: 8122064963107472268}
   - component: {fileID: -7446648542200081202}
   - component: {fileID: 5197020705709404156}
   - component: {fileID: 8796192146486726451}
   - component: {fileID: 3539866116012617658}
   - component: {fileID: 2621231718847922893}
+  - component: {fileID: 1405064290}
+  - component: {fileID: 1405064298}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -200,21 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4963c731bd994f34c80162e05c70d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8122064963107472268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5687496867986344557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9542b47a83e30e49a4e114a7c850fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeAttackRadius: 0.7
-  basicDamage: 1
-  comboMultiplier: 1.2
 --- !u!114 &-7446648542200081202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +247,7 @@ MonoBehaviour:
   - {fileID: 6969587409914681152}
   - {fileID: 5687496867986344551}
   - {fileID: -7446648542200081202}
-  - {fileID: 8122064963107472268}
+  - {fileID: 8122064963107472268, guid: 9581167ba073cbb4f86a470be933ecfb, type: 3}
   - {fileID: 5197020705709404156}
   - {fileID: 2621231718847922893}
   - {fileID: 3539866116012617658}
@@ -290,5 +276,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e096c639aff0dd64d9170b6b106838bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1405064290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687496867986344557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9542b47a83e30e49a4e114a7c850fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeAttackRadius: 0.7
+  basicDamage: 1
+  comboMultiplier: 1.2
+  projectilePrefab: {fileID: 2854969950200840695, guid: 3fc60a121a8d1594dab91361635c9a6f,
+    type: 3}
+  amountOfProjectilesInPool: 10
+--- !u!114 &1405064298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687496867986344557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc8f24792c586844b4e62b5f0fc97f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

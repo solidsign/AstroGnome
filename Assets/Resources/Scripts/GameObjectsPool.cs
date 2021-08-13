@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectsPool
+public class GameObjectsPool : MonoBehaviour
 {
     private Queue<GameObject> objects;
 
-    public GameObjectsPool(int capacity, GameObject prefab)
+    public void CreateGameObjectsPool(int capacity, GameObject prefab)
     {
+        objects = new Queue<GameObject>(capacity);
         for (int i = 0; i < capacity; i++)
         {
-            GameObject obj = Object.Instantiate(prefab);
+            GameObject obj = Instantiate(prefab);
             objects.Enqueue(obj);
             obj.SetActive(false);
         }

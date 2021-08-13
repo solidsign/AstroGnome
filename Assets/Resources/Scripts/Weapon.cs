@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon")]
 public class Weapon : ScriptableObject

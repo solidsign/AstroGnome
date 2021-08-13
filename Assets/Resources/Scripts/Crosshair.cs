@@ -21,7 +21,7 @@ public class Crosshair : MonoBehaviour
     {
         get
         {
-            return Quaternion.FromToRotation(transform.position + centerOffset, AttackPoint);
+            return Quaternion.LookRotation(transform.forward, (mousePos - (transform.position + centerOffset)).normalized);
         }
     }
 

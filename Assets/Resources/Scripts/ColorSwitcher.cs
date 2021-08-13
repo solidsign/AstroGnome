@@ -18,17 +18,6 @@ public class ColorSwitcher : MonoBehaviour
         material.SetColor("_color", currentColor * currentIntensivity);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            IncreaseIntensity();
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            ResetIntensity();
-        }
-    }
 
     public void SwitchColor(Color newColor)
     {

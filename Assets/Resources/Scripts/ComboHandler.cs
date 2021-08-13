@@ -12,6 +12,18 @@ public class ComboHandler : MonoBehaviour
         color = GetComponent<ColorSwitcher>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            IncreaseCombo();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ResetCombo();
+        }
+    }
+
     public void IncreaseCombo()
     {
         ++combo;
