@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void DealDamage(Vector2 attackDirection, float damage)
     {
+        if (hp <= 0f) return;
         hp -= damage;
         rb.AddForce(attackDirection.normalized * damage, ForceMode2D.Impulse);
         if(hp <= 0)

@@ -16,6 +16,7 @@ public class HealthHandler : MonoBehaviour
     }
     public void DealDamage(float damage)
     {
+        if (hp <= 0f) return;
         hp -= damage;
         combo.ResetCombo();
         if(hp <= 0f)
