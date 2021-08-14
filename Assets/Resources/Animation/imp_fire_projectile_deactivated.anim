@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire_elemental_dead
+  m_Name: imp_fire_projectile_deactivated
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2108952983931517170, guid: bc08541a6c6cdb341a6fe9778d22e325,
+      value: {fileID: 514813042380494825, guid: c7bf7960568d8a344834ff1b4489b238,
+        type: 3}
+    - time: 0.083333336
+      value: {fileID: -1971193238408629093, guid: c7bf7960568d8a344834ff1b4489b238,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,13 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2108952983931517170, guid: bc08541a6c6cdb341a6fe9778d22e325, type: 3}
+    - {fileID: 514813042380494825, guid: c7bf7960568d8a344834ff1b4489b238, type: 3}
+    - {fileID: -1971193238408629093, guid: c7bf7960568d8a344834ff1b4489b238, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

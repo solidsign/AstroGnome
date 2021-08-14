@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Imp
+  m_Name: Fire
   m_Shader: {fileID: -6465566751694194690, guid: 0ca406e558612bc4187354e138fc328f,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -30,4 +30,4 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _color: {r: 4, g: 0, b: 0, a: 0}
+    - _color: {r: 3.9999995, g: 0.12122134, b: 0, a: 1}
