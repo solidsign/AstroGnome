@@ -42,15 +42,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Characters
-    uniqueID: 4271937577
-    locked: 0
-  - name: Background
-    uniqueID: 2903329021
-    locked: 0
-  - name: Decoration
-    uniqueID: 2621820993
-    locked: 0
-  - name: Attacks
-    uniqueID: 1781398683
-    locked: 0

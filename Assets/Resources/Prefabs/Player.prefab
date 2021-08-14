@@ -82,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -23029719
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 5393463745336178294, guid: 19a60686bbc94e5488052de9c2bc6687,
     type: 3}
@@ -300,9 +300,6 @@ MonoBehaviour:
   meleeAttackRadius: 0.7
   basicDamage: 1
   comboMultiplier: 1.2
-  projectilePrefab: {fileID: 2854969950200840695, guid: 3fc60a121a8d1594dab91361635c9a6f,
-    type: 3}
-  amountOfProjectilesInPool: 10
 --- !u!114 &1405064298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc8f24792c586844b4e62b5f0fc97f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2854969950200840695, guid: 3fc60a121a8d1594dab91361635c9a6f,
+    type: 3}
+  amountOfObjectsInPool: 15
 --- !u!114 &1405064299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce5996cf18053643a5c5f63984b7797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combo: 0
 --- !u!114 &8796192146486726451
 MonoBehaviour:
   m_ObjectHideFlags: 0
