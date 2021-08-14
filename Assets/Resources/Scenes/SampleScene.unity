@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 66332435}
   - component: {fileID: 66332434}
   - component: {fileID: 66332438}
+  - component: {fileID: 66332439}
   m_Layer: 0
   m_Name: test collider
   m_TagString: Untagged
@@ -266,6 +267,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+--- !u!61 &66332439
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66332433}
+  m_Enabled: 1
+  m_Density: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006054044, y: 0.46097326}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.091892, y: 1.2250814}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,24 +408,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1405064284 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5687496867986344557, guid: 9581167ba073cbb4f86a470be933ecfb,
-    type: 3}
-  m_PrefabInstance: {fileID: 5687496869666324491}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1405064299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405064284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce5996cf18053643a5c5f63984b7797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1741954286
 GameObject:
   m_ObjectHideFlags: 0

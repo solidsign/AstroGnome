@@ -40,8 +40,7 @@ public class ShootWaveController : MonoBehaviour
         speed = defaultSpeed * multiplier / 2;
         color.Intensity = multiplier;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyHealth enemy;
         if (collision.transform.TryGetComponent<EnemyHealth>(out enemy))

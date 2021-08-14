@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: df827c92a8899244cab7c2c1420cde7a, type: 2}
-  color: {r: 1, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 0.54118204, b: 1, a: 1}
 --- !u!114 &2854969950200840694
 MonoBehaviour:
   m_ObjectHideFlags: 0
