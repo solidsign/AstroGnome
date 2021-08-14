@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: shoot_wave_deactivated
+  m_Name: ghoul_hell_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -4401612257623373632, guid: fe31f5d698d510540817efdd4234767f,
+      value: {fileID: -2824788490626642377, guid: 52b9d93752ad22f46b2facf7e79194dc,
         type: 3}
-    - time: 0.033333335
-      value: {fileID: 4082965660330612600, guid: fe31f5d698d510540817efdd4234767f,
+    - time: 0.16666667
+      value: {fileID: -4034570094593544897, guid: 52b9d93752ad22f46b2facf7e79194dc,
         type: 3}
     - time: 0.33333334
-      value: {fileID: -4401612257623373632, guid: fe31f5d698d510540817efdd4234767f,
+      value: {fileID: 1038074041340716152, guid: 52b9d93752ad22f46b2facf7e79194dc,
+        type: 3}
+    - time: 0.5
+      value: {fileID: -1880863823326736592, guid: 52b9d93752ad22f46b2facf7e79194dc,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,15 +50,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -4401612257623373632, guid: fe31f5d698d510540817efdd4234767f, type: 3}
-    - {fileID: 4082965660330612600, guid: fe31f5d698d510540817efdd4234767f, type: 3}
-    - {fileID: -4401612257623373632, guid: fe31f5d698d510540817efdd4234767f, type: 3}
+    - {fileID: -2824788490626642377, guid: 52b9d93752ad22f46b2facf7e79194dc, type: 3}
+    - {fileID: -4034570094593544897, guid: 52b9d93752ad22f46b2facf7e79194dc, type: 3}
+    - {fileID: 1038074041340716152, guid: 52b9d93752ad22f46b2facf7e79194dc, type: 3}
+    - {fileID: -1880863823326736592, guid: 52b9d93752ad22f46b2facf7e79194dc, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -74,11 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.33333334
-    functionName: DeactivateWave
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
