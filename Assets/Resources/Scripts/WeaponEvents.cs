@@ -41,8 +41,8 @@ public class WeaponEvents : MonoBehaviour
         GameObject projectile = projectiles.GetObject();
         projectile.transform.position = crosshair.AttackPoint;
         projectile.transform.rotation = crosshair.AttackDirection;
-        //var wave = projectile.GetComponent<ShootWaveController>();
-        //wave.IncreaseDamage(Mathf.Pow(comboMultiplier, combo.Combo));
+        var wave = projectile.GetComponent<ShootWaveController>();
+        wave.IncreaseDamage(Mathf.Pow(comboMultiplier, combo.Combo));
         projectile.SetActive(true);
     }
 

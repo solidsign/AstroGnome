@@ -7,6 +7,7 @@ public class ShootWaveController : MonoBehaviour
     private ShootWaveColorIntensity color;
     private float damage;
     private float speed;
+    private bool instanciated = false;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -29,7 +30,13 @@ public class ShootWaveController : MonoBehaviour
 
     private void OnEnable()
     {
-        //animator.SetTrigger("Activate");
+        if (!instanciated)
+        {
+            Start();
+            instanciated = true;
+            return;
+        }
+        animator.SetTrigger("Activate");
         Vector3 scale = Vector3.one;
         transform.localScale = scale;
     }
