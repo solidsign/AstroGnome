@@ -6,13 +6,13 @@ public class ShootWaveController : MonoBehaviour
     [SerializeField] private float defaultSpeed;
     [SerializeField] private float defaultDamage;
     [SerializeField] private float activeTime;
-    private ShootWaveColorIntensity color;
+    public ShootWaveColorIntensity color;
     public float damage;
-    private float speed;
-    private bool instanciated = false;
+    public float speed;
+    public bool instanciated = false;
 
-    private Animator animator;
-    private Rigidbody2D rb;
+    public Animator animator;
+    public Rigidbody2D rb;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -26,7 +26,7 @@ public class ShootWaveController : MonoBehaviour
     {
         rb.MovePosition(transform.position + transform.up * speed);
         Vector3 scale = transform.localScale;
-        scale.x += damage * 2f * Time.deltaTime;
+        scale.x += damage * 1.3f * Time.deltaTime;
         transform.localScale = scale;
     }
 
@@ -46,6 +46,7 @@ public class ShootWaveController : MonoBehaviour
     public void SetDamage(float multiplier)
     {
         damage = defaultDamage * multiplier;
+        speed = defaultSpeed * Mathf.Sqrt(multiplier);
         color.Intensity = multiplier;
     }
 
