@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dwarf
+  m_Name: Imp
   m_Shader: {fileID: -6465566751694194690, guid: 0ca406e558612bc4187354e138fc328f,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -21,13 +21,13 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 19a60686bbc94e5488052de9c2bc6687, type: 3}
+        m_Texture: {fileID: 2800000, guid: c7bf7960568d8a344834ff1b4489b238, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _highlights:
-        m_Texture: {fileID: 2800000, guid: 0b62df2802d58f44cba3c39a9e2a01fb, type: 3}
+        m_Texture: {fileID: 2800000, guid: c4307659f2bc4bb4db3625b9f0e3d14b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _color: {r: 0.000003776053, g: 0.9999975, b: 0.9139787, a: 1}
+    - _color: {r: 4, g: 0, b: 0, a: 0}

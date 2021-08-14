@@ -51,3 +51,6 @@ TagManager:
   - name: Decoration
     uniqueID: 2621820993
     locked: 0
+  - name: Attacks
+    uniqueID: 1781398683
+    locked: 0
