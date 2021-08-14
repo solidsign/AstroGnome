@@ -27,6 +27,6 @@ public class HealthHandler : MonoBehaviour
     private void Die()
     {
         disabler.DisableComponents();
-        animator.SetBool("Dead", true);
+        animator.SetTrigger("Dead");
     }
 }

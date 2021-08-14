@@ -5,11 +5,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float hp;
     private Rigidbody2D rb;
     private Animator animator;
+    private ComponentsDisabler components;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        components = GetComponent<ComponentsDisabler>();
     }
 
     public void DealDamage(Vector2 attackDirection, float damage)
@@ -24,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        animator.SetBool("Dead", true);
+        components.DisableComponents();
+        animator.SetTrigger("Dead");
     }
 }
