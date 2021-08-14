@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ShootWaveController : MonoBehaviour
 {
     [SerializeField] private float defaultSpeed;
     [SerializeField] private float defaultDamage;
+    [SerializeField] private float activeTime;
     private ShootWaveColorIntensity color;
     private float damage;
     private float speed;
@@ -39,6 +41,7 @@ public class ShootWaveController : MonoBehaviour
         animator.SetTrigger("Activate");
         Vector3 scale = Vector3.one;
         transform.localScale = scale;
+        StartCoroutine(WaveDisabler());
     }
 
     public void IncreaseDamage(float multiplier)
@@ -47,6 +50,19 @@ public class ShootWaveController : MonoBehaviour
         speed = defaultSpeed * multiplier / 2;
         color.Intensity = multiplier;
     }
+
+    public void DeactivateWave()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator WaveDisabler()
+    {
+        yield return new WaitForSeconds(activeTime);
+        animator.SetTrigger("Deactivate");
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyHealth enemy;

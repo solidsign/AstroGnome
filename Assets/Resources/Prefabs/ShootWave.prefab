@@ -181,3 +181,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 0.1
   defaultDamage: 1
+  activeTime: 2
+  disableSpeed: 5
