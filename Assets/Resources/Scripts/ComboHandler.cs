@@ -2,7 +2,7 @@
 
 public class ComboHandler : MonoBehaviour
 {
-    private int combo = 0;
+    public int combo = 0;
     private ColorSwitcher color;
 
     public int Combo => combo;

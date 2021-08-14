@@ -5,8 +5,6 @@ public class WeaponEvents : MonoBehaviour
     [SerializeField] private float meleeAttackRadius;
     [SerializeField] private float basicDamage;
     [SerializeField] private float comboMultiplier;
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private int amountOfProjectilesInPool;
     private GameObjectsPool projectiles;
     private Crosshair crosshair;
     private ComboHandler combo;
@@ -16,7 +14,6 @@ public class WeaponEvents : MonoBehaviour
         combo = GetComponent<ComboHandler>();
         crosshair = GetComponent<Crosshair>();
         projectiles = GetComponent<GameObjectsPool>();
-        projectiles.CreateGameObjectsPool(amountOfProjectilesInPool, projectilePrefab);
     }
 
     public void MeleeAxeHit()
@@ -42,7 +39,7 @@ public class WeaponEvents : MonoBehaviour
         projectile.transform.position = crosshair.AttackPoint;
         projectile.transform.rotation = crosshair.AttackDirection;
         var wave = projectile.GetComponent<ShootWaveController>();
-        wave.IncreaseDamage(Mathf.Pow(comboMultiplier, combo.Combo));
+        wave.SetDamage(Mathf.Pow(comboMultiplier, combo.Combo));
         projectile.SetActive(true);
     }
 

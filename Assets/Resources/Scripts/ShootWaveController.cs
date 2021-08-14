@@ -7,7 +7,7 @@ public class ShootWaveController : MonoBehaviour
     [SerializeField] private float defaultDamage;
     [SerializeField] private float activeTime;
     private ShootWaveColorIntensity color;
-    private float damage;
+    public float damage;
     private float speed;
     private bool instanciated = false;
 
@@ -26,7 +26,7 @@ public class ShootWaveController : MonoBehaviour
     {
         rb.MovePosition(transform.position + transform.up * speed);
         Vector3 scale = transform.localScale;
-        scale.x += damage * Time.deltaTime;
+        scale.x += damage * 2f * Time.deltaTime;
         transform.localScale = scale;
     }
 
@@ -39,15 +39,13 @@ public class ShootWaveController : MonoBehaviour
             return;
         }
         animator.SetTrigger("Activate");
-        Vector3 scale = Vector3.one;
-        transform.localScale = scale;
+        transform.localScale = Vector3.one;
         StartCoroutine(WaveDisabler());
     }
 
-    public void IncreaseDamage(float multiplier)
+    public void SetDamage(float multiplier)
     {
         damage = defaultDamage * multiplier;
-        speed = defaultSpeed * multiplier / 2;
         color.Intensity = multiplier;
     }
 

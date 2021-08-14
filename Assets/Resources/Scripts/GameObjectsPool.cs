@@ -3,7 +3,14 @@ using UnityEngine;
 
 public class GameObjectsPool : MonoBehaviour
 {
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private int amountOfObjectsInPool;
     private Queue<GameObject> objects;
+
+    private void Start()
+    {
+        CreateGameObjectsPool(amountOfObjectsInPool, projectilePrefab);
+    }
 
     public void CreateGameObjectsPool(int capacity, GameObject prefab)
     {
