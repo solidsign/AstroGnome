@@ -7,6 +7,8 @@ public class MovementHandler : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    public float Speed { set => speed = value; }
+
     public Vector2 Direction
     {
         set
