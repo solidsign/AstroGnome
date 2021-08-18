@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private bool moving = false;
     public Transform AttackPurpose
     {
+        get => attackPurpose;
         set => attackPurpose = value;
     }
 

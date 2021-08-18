@@ -16,6 +16,7 @@ public class AttackHandler : MonoBehaviour
     private Vector2 attackDirection;
     private float damage;
     private Transform attackPoint;
+    private EnemyController enemyController;
 
     public string AnimationTrigger { set => animationTrigger = value; }
     public float AttackRadius { set => attackRadius = value; }
@@ -23,6 +24,10 @@ public class AttackHandler : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        if(spawnObjectPrefab != null)
+        {
+            enemyController = GetComponent<EnemyController>();
+        }
     }
     public void Attack(Vector2 direction, float damage)
     {
@@ -75,6 +80,7 @@ public class AttackHandler : MonoBehaviour
         {
             GameObject totem = Instantiate(spawnObjectPrefab);
             totem.transform.position = positions[i];
+            totem.GetComponent<FireTotem>().AttackPurpose = enemyController.AttackPurpose;
         }
     }
 }

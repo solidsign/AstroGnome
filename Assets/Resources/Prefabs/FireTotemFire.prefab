@@ -117,4 +117,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   damage: 1
-  flyTime: 1
+  flyTime: 0.7
