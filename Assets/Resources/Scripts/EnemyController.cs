@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         movement.Speed = data.Speed;
+        attacker.AnimationTrigger = data.AttackAnimationTrigger;
+        attacker.AttackRadius = data.MeleeAttackRadius;
     }
 
     private void Update()
