@@ -7,6 +7,9 @@ public class AttackHandler : MonoBehaviour
     [Header("For NonMelee enemies")]
     [SerializeField] private GameObjectsPool projectiles;
 
+    [Header("For spawners")]
+    [SerializeField] private GameObject spawnObjectPrefab;
+
     private string animationTrigger;
     private Animator animator;
 
@@ -42,5 +45,35 @@ public class AttackHandler : MonoBehaviour
             projectile.SetActive(false);
         }
         projectile.SetActive(true);
+    }
+
+    public void MeleeAttack()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, 8);
+        
+        foreach (var collider in colliders)
+        {
+            if(collider != null)
+            {
+                HealthHandler hp = collider.GetComponent<HealthHandler>();
+                hp.DealDamage(damage);
+            }
+        }
+    }
+
+    public void SpawnFireTotems()
+    {
+        Vector3[] positions = new Vector3[4];
+
+        positions[0] = attackPoint.position + transform.up * attackRadius;
+        positions[1] = attackPoint.position - transform.up * attackRadius;
+        positions[2] = attackPoint.position + transform.right * attackRadius;
+        positions[3] = attackPoint.position - transform.right * attackRadius;
+
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject totem = Instantiate(spawnObjectPrefab);
+            totem.transform.position = positions[i];
+        }
     }
 }
