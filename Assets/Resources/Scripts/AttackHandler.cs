@@ -2,7 +2,6 @@
 
 public class AttackHandler : MonoBehaviour
 {
-    [SerializeField] private Transform attackPoint;
 
     [Header("For NonMelee enemies")]
     [SerializeField] private GameObjectsPool projectiles;
@@ -16,9 +15,11 @@ public class AttackHandler : MonoBehaviour
     private float attackRadius;
     private Vector2 attackDirection;
     private float damage;
+    private Transform attackPoint;
 
     public string AnimationTrigger { set => animationTrigger = value; }
     public float AttackRadius { set => attackRadius = value; }
+    public Transform AttackPoint { set => attackPoint = value; }
     private void Start()
     {
         animator = GetComponent<Animator>();

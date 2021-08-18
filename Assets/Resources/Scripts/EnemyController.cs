@@ -3,7 +3,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Enemy data;
+    [Header("Movement")]
+    [SerializeField] private float speed;
+    [Header("Attack")]
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float attackDistance;
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float attackRadius;
+    [SerializeField] private float meleeDamage;
+    [SerializeField] private string attackAnimationTrigger = "Attack";
+
     private MovementHandler movement;
     private AttackHandler attacker;
     private float cooldownTimer = 0f;
@@ -16,22 +25,23 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        movement.Speed = data.Speed;
-        attacker.AnimationTrigger = data.AttackAnimationTrigger;
-        attacker.AttackRadius = data.MeleeAttackRadius;
+        movement.Speed = speed;
+        attacker.AnimationTrigger = attackAnimationTrigger;
+        attacker.AttackRadius = attackRadius;
+        attacker.AttackPoint = attackPoint;
     }
 
     private void Update()
     {
         if (cooldownTimer <= 0f)
         {
-            if (!moving && Vector3.Distance(attackPurpose.position, transform.position) > data.AttackDistance)
+            if (!moving && Vector3.Distance(attackPurpose.position, transform.position) > attackDistance)
             {
                 StartCoroutine(ComeCloserForAttack());
             }
             else
             {
-                attacker.Attack(attackPurpose.position - transform.position, data.MeleeDamage);
+                attacker.Attack(attackPurpose.position - transform.position, meleeDamage);
             }
         }
         else if(!moving)
@@ -47,7 +57,7 @@ public class EnemyController : MonoBehaviour
         {
             movement.Direction = attackPurpose.position - transform.position;
             yield return null;
-        } while (Vector3.Distance(attackPurpose.position, transform.position) > data.AttackDistance);
+        } while (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance);
         movement.Direction = Vector2.zero;
         moving = false;
     }
@@ -62,5 +72,14 @@ public class EnemyController : MonoBehaviour
         } while (cooldownTimer > 0f);
         movement.Direction = Vector2.zero;
         moving = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint.position, attackDistance);
     }
 }
