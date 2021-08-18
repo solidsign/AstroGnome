@@ -6,7 +6,7 @@ public class MovementHandler : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private Rigidbody2D rb;
     private Animator animator;
-
+    private bool lookRight = true;
     public float Speed { set => speed = value; }
 
     public Vector2 Direction
@@ -31,6 +31,8 @@ public class MovementHandler : MonoBehaviour
         {
             rb.MovePosition((Vector2)transform.position + Time.deltaTime * speed * velocity);
             animator.SetBool("Run", true);
+            if (!lookRight && velocity.x > 0f) transform.Rotate(0, 180f, 0);
+            else if(lookRight && velocity.x < 0f) transform.Rotate(0, 180f, 0);
         }
         else
         {
