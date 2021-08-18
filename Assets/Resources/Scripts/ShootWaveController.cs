@@ -6,13 +6,13 @@ public class ShootWaveController : MonoBehaviour
     [SerializeField] private float defaultSpeed;
     [SerializeField] private float defaultDamage;
     [SerializeField] private float activeTime;
-    public ShootWaveColorIntensity color;
-    public float damage;
-    public float speed;
-    public bool instanciated = false;
+    private ShootWaveColorIntensity color;
+    private float damage;
+    private float speed;
+    private bool instanciated = false;
 
-    public Animator animator;
-    public Rigidbody2D rb;
+    private Animator animator;
+    private Rigidbody2D rb;
     private void Start()
     {
         animator = GetComponent<Animator>();
