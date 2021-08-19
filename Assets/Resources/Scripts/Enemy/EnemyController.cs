@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     private AttackHandler attacker;
     private Animator animator;
     private float cooldownTimer = 0f;
-    public Transform attackPurpose; // TODO: REMOVE PUBLIC WHEN ALL DEBUG IS DONE
+    private Transform attackPurpose;
     private bool moving = false;
     private bool attackAvailable = true;
     public Transform AttackPurpose

@@ -50,6 +50,4 @@ public class ColorSwitcher : MonoBehaviour
             yield return null;
         }
     }
-
-    // TODO: сделать норм интенсивность цвета
 }
