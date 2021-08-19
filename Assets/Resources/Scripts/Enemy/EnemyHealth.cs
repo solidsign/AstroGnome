@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void DealDamage(Vector2 attackDirection, float damage)
     {
-        if (hp <= 0f) return;
+        if (dead) return;
         hp -= damage;
         if(hp <= 0)
         {
@@ -27,7 +27,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        if (dead) return;
         components.DisableComponents();
         animator.SetTrigger("Dead");
         dead = true;

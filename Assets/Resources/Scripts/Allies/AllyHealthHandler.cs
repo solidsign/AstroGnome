@@ -1,29 +1,27 @@
 ﻿using UnityEngine;
 
-public class HealthHandler : MonoBehaviour
+public class AllyHealthHandler : HealthHandler
 {
-    [SerializeField] protected float hp;
-    private ComponentsDisabler disabler;
     private Animator animator;
-    private ComboHandler combo;
+    private ComponentsDisabler disabler;
     private bool dead = false;
-    public float HP => hp;
 
     private void Start()
     {
-        disabler = GetComponent<ComponentsDisabler>();
         animator = GetComponent<Animator>();
-        combo = GetComponent<ComboHandler>();
+        disabler = GetComponent<ComponentsDisabler>();
     }
-    virtual public void DealDamage(float damage)
+
+    public override void DealDamage(float damage)
     {
         if (dead) return;
         hp -= damage;
-        combo.ResetCombo();
         if(hp <= 0f)
         {
             Die();
+            return;
         }
+        animator.SetTrigger("Damaged");
     }
 
     private void Die()
