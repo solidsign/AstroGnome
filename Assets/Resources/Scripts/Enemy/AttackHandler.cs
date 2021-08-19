@@ -35,6 +35,7 @@ public class AttackHandler : MonoBehaviour
         attackDirection = direction;
 
         animator.SetTrigger(animationTrigger);
+        Debug.Log(animationTrigger);
     }
 
     // Animation Events //
@@ -55,13 +56,13 @@ public class AttackHandler : MonoBehaviour
 
     public void MeleeAttack()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, 8);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);
         
+        HealthHandler hp;
         foreach (var collider in colliders)
         {
-            if(collider != null)
+            if (collider.TryGetComponent<HealthHandler>(out hp))
             {
-                HealthHandler hp = collider.GetComponent<HealthHandler>();
                 hp.DealDamage(damage);
             }
         }

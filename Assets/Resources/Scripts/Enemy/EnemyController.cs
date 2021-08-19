@@ -15,9 +15,11 @@ public class EnemyController : MonoBehaviour
 
     private MovementHandler movement;
     private AttackHandler attacker;
+    private Animator animator;
     private float cooldownTimer = 0f;
-    private Transform attackPurpose;
+    public Transform attackPurpose; // TODO: REMOVE PUBLIC WHEN ALL DEBUG IS DONE
     private bool moving = false;
+    private bool attackAvailable = false;
     public Transform AttackPurpose
     {
         get => attackPurpose;
@@ -26,6 +28,9 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        movement = GetComponent<MovementHandler>();
+        attacker = GetComponent<AttackHandler>();
         movement.Speed = speed;
         attacker.AnimationTrigger = attackAnimationTrigger;
         attacker.AttackRadius = attackRadius;
@@ -40,38 +45,50 @@ public class EnemyController : MonoBehaviour
             {
                 StartCoroutine(ComeCloserForAttack());
             }
-            else
+            else if(attackAvailable)
             {
                 attacker.Attack(attackPurpose.position - transform.position, meleeDamage);
+                cooldownTimer = attackCooldown;
             }
         }
         else if(!moving)
         {
             StartCoroutine(MoveWhileCooldown());
         }
+        cooldownTimer -= Time.deltaTime;
     }
 
     private IEnumerator ComeCloserForAttack()
     {
         moving = true;
+        attackAvailable = false;
+        animator.SetBool("Run", true);
+        Debug.Log("Run true");
         do
         {
             movement.Direction = attackPurpose.position - transform.position;
             yield return null;
         } while (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance);
         movement.Direction = Vector2.zero;
+        animator.SetBool("Run", false);
+        Debug.Log("Run false");
         moving = false;
+        attackAvailable = true;
     }
 
     private IEnumerator MoveWhileCooldown()
     {
         moving = true;
+        animator.SetBool("Run", true);
+        Debug.Log("Run true");
         movement.Direction = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         do
         {
             yield return null;
         } while (cooldownTimer > 0f);
         movement.Direction = Vector2.zero;
+        Debug.Log("Run false");
+        animator.SetBool("Run", false);
         moving = false;
     }
 

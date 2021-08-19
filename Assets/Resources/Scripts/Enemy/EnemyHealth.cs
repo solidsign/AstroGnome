@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private ComponentsDisabler components;
+    private bool dead = false;
 
     private void Start()
     {
@@ -27,7 +28,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (dead) return;
         components.DisableComponents();
         animator.SetTrigger("Dead");
+        dead = true;
     }
 }

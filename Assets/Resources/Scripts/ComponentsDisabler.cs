@@ -12,4 +12,12 @@ public class ComponentsDisabler : MonoBehaviour
             component.enabled = false;
         }
     }
+
+    public void EnableComponents()
+    {
+        foreach (var component in componentsToDisable)
+        {
+            component.enabled = true;
+        }
+    }
 }

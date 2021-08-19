@@ -5,7 +5,6 @@ public class MovementHandler : MonoBehaviour
     private float speed;
     private Vector2 velocity = Vector2.zero;
     private Rigidbody2D rb;
-    private Animator animator;
     private bool lookRight = true;
     public float Speed { set => speed = value; }
 
@@ -22,7 +21,6 @@ public class MovementHandler : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,13 +28,14 @@ public class MovementHandler : MonoBehaviour
         if(velocity.magnitude > 0f)
         {
             rb.MovePosition((Vector2)transform.position + Time.deltaTime * speed * velocity);
-            animator.SetBool("Run", true);
-            if (!lookRight && velocity.x > 0f) transform.Rotate(0, 180f, 0);
-            else if(lookRight && velocity.x < 0f) transform.Rotate(0, 180f, 0);
+            if (!lookRight && velocity.x > 0f) Flip();
+            else if(lookRight && velocity.x < 0f) Flip();
         }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
+    }
+
+    private void Flip()
+    {
+        transform.Rotate(0, 180f, 0);
+        lookRight = !lookRight;
     }
 }
