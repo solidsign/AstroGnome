@@ -35,7 +35,6 @@ public class AttackHandler : MonoBehaviour
         attackDirection = direction;
 
         animator.SetTrigger(animationTrigger);
-        Debug.Log(animationTrigger);
     }
 
     // Animation Events //

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43912536847329062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0.14, y: 0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 78924858968972393}
@@ -46,6 +46,9 @@ GameObject:
   - component: {fileID: 4618761010108530450}
   - component: {fileID: 4878884174714388075}
   - component: {fileID: 4550138071545980782}
+  - component: {fileID: -1831121900868843204}
+  - component: {fileID: 4879203170150303454}
+  - component: {fileID: 5595508315281137410}
   m_Layer: 9
   m_Name: Ghoul
   m_TagString: Untagged
@@ -177,11 +180,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   attackPoint: {fileID: 2520847288004664230}
-  attackDistance: 0.24
+  attackDistance: 1.04
   attackCooldown: 1
-  attackRadius: 0.41
+  attackRadius: 0.92
   meleeDamage: 5
   attackAnimationTrigger: Attack
+  attackPurpose: {fileID: 0}
 --- !u!114 &4878884174714388075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +214,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentsToDisable:
   - {fileID: 340058419525707787}
-  - {fileID: 3122861078811120082}
   - {fileID: 4618761010108530450}
   - {fileID: 4878884174714388075}
+--- !u!50 &-1831121900868843204
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78924858968972374}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 15
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &4879203170150303454
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78924858968972374}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09451604, y: 0.03659916}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7640166, y: 0.2696247}
+  m_EdgeRadius: 0
+--- !u!61 &5595508315281137410
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78924858968972374}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.050893545, y: 0.6618612}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4038196, y: 1.5783119}
+  m_EdgeRadius: 0

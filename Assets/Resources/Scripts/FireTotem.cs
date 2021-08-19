@@ -5,14 +5,8 @@ public class FireTotem : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObjectsPool projectiles;
 
-    private Transform attackPurpose;
+    public Transform attackPurpose; // TODO: REMOVE WHEN FINISHED DEBUG
     public Transform AttackPurpose { set => attackPurpose = value; }
-
-    private AttackHandler attacker;
-    void Start()
-    {
-        attacker.AttackPoint = attackPoint;
-    }
 
     public void ShootProjectile()
     {

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6264309183554624960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: 0.41, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8609273798457462012}
@@ -46,6 +46,9 @@ GameObject:
   - component: {fileID: 3267684784765616889}
   - component: {fileID: 7652300684275668929}
   - component: {fileID: 2605443386510088706}
+  - component: {fileID: 3063221472451517045}
+  - component: {fileID: 6284872698104840374}
+  - component: {fileID: 3087017986109848669}
   m_Layer: 9
   m_Name: MafiaMelee
   m_TagString: Untagged
@@ -177,11 +180,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.5
   attackPoint: {fileID: 2852290319869924117}
-  attackDistance: 0.41
+  attackDistance: 0.86
   attackCooldown: 0.5
   attackRadius: 0.73
-  meleeDamage: 10
+  meleeDamage: 15
   attackAnimationTrigger: Attack
+  attackPurpose: {fileID: 0}
 --- !u!114 &7652300684275668929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +214,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentsToDisable:
   - {fileID: 5331315840684206317}
-  - {fileID: 3291801594405156604}
   - {fileID: 3267684784765616889}
   - {fileID: 7652300684275668929}
+--- !u!50 &3063221472451517045
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609273798457461763}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &6284872698104840374
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609273798457461763}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10040307, y: 0.12730217}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.674685, y: 0.25299358}
+  m_EdgeRadius: 0
+--- !u!61 &3087017986109848669
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609273798457461763}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09036279, y: 0.5891547}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1365371, y: 1.2168598}
+  m_EdgeRadius: 0

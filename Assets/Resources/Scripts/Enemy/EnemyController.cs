@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
     private float cooldownTimer = 0f;
     public Transform attackPurpose; // TODO: REMOVE PUBLIC WHEN ALL DEBUG IS DONE
     private bool moving = false;
-    private bool attackAvailable = false;
+    private bool attackAvailable = true;
     public Transform AttackPurpose
     {
         get => attackPurpose;
@@ -37,25 +37,38 @@ public class EnemyController : MonoBehaviour
         attacker.AttackPoint = attackPoint;
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        animator.SetBool("Run", false);
+        moving = false;
+        attackAvailable = true;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(CooldownTimer());
+    }
+
     private void Update()
     {
         if (cooldownTimer <= 0f)
         {
-            if (!moving && Vector3.Distance(attackPurpose.position, transform.position) > attackDistance)
+            if (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance)
             {
-                StartCoroutine(ComeCloserForAttack());
+                if(!moving) StartCoroutine(ComeCloserForAttack());
             }
             else if(attackAvailable)
             {
-                attacker.Attack(attackPurpose.position - transform.position, meleeDamage);
                 cooldownTimer = attackCooldown;
+                StartCoroutine(CooldownTimer());
+                attacker.Attack(attackPurpose.position - transform.position, meleeDamage);
             }
         }
         else if(!moving)
         {
             StartCoroutine(MoveWhileCooldown());
         }
-        cooldownTimer -= Time.deltaTime;
     }
 
     private IEnumerator ComeCloserForAttack()
@@ -63,7 +76,6 @@ public class EnemyController : MonoBehaviour
         moving = true;
         attackAvailable = false;
         animator.SetBool("Run", true);
-        Debug.Log("Run true");
         do
         {
             movement.Direction = attackPurpose.position - transform.position;
@@ -71,7 +83,6 @@ public class EnemyController : MonoBehaviour
         } while (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance);
         movement.Direction = Vector2.zero;
         animator.SetBool("Run", false);
-        Debug.Log("Run false");
         moving = false;
         attackAvailable = true;
     }
@@ -80,16 +91,23 @@ public class EnemyController : MonoBehaviour
     {
         moving = true;
         animator.SetBool("Run", true);
-        Debug.Log("Run true");
         movement.Direction = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         do
         {
             yield return null;
         } while (cooldownTimer > 0f);
         movement.Direction = Vector2.zero;
-        Debug.Log("Run false");
         animator.SetBool("Run", false);
         moving = false;
+    }
+
+    private IEnumerator CooldownTimer()
+    {
+        while(cooldownTimer >= 0f)
+        {
+            cooldownTimer -= Time.deltaTime;
+            yield return null;
+        }
     }
 
     private void OnDrawGizmosSelected()
