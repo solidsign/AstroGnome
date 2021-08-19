@@ -27,9 +27,9 @@ public class ColorSwitcher : MonoBehaviour
         StartCoroutine(LerpColor());
     }
 
-    public void IncreaseIntensity()
+    public void IncreaseIntensity(int combo)
     {
-        currentIntensivity *= intensivityMultipliyer;
+        currentIntensivity = startIntensivity * Mathf.Pow(intensivityMultipliyer, combo);
         SwitchColor(currentColor);
     }
 

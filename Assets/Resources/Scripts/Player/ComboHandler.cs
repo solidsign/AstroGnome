@@ -2,8 +2,9 @@
 
 public class ComboHandler : MonoBehaviour
 {
-    public int combo = 0;
+    private int combo = 0;
     private ColorSwitcher color;
+    private int minCombo = 0;
 
     public int Combo => combo;
 
@@ -27,12 +28,32 @@ public class ComboHandler : MonoBehaviour
     public void IncreaseCombo()
     {
         ++combo;
-        color.IncreaseIntensity();
+        color.IncreaseIntensity(combo);
     }
 
     public void ResetCombo()
     {
-        combo = 0;
+        combo = minCombo;
         color.ResetIntensity();
+    }
+
+    public void IncreaseMinCombo()
+    {
+        minCombo += 3;
+        if(combo < minCombo)
+        {
+            combo = minCombo;
+            color.IncreaseIntensity(combo);
+        }
+    }
+
+    public void DecreaseMinCombo()
+    {
+        minCombo -= 3;
+        if (combo < minCombo)
+        {
+            combo = minCombo;
+            color.IncreaseIntensity(combo);
+        }
     }
 }
