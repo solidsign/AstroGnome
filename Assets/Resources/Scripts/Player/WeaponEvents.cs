@@ -5,6 +5,7 @@ public class WeaponEvents : MonoBehaviour
     [SerializeField] private float meleeAttackRadius;
     [SerializeField] private float basicDamage;
     [SerializeField] private float comboMultiplier;
+    [SerializeField] private GameObject totemPrefab;
     private GameObjectsPool projectiles;
     private Crosshair crosshair;
     private ComboHandler combo;
@@ -26,7 +27,7 @@ public class WeaponEvents : MonoBehaviour
                 EnemyHealth enemy;
                 if(collider.TryGetComponent<EnemyHealth>(out enemy))
                 {
-                    enemy.DealDamage(collider.transform.position - crosshair.AttackPoint, basicDamage * Mathf.Pow(comboMultiplier, combo.Combo));
+                    enemy.DealDamage(basicDamage * Mathf.Pow(comboMultiplier, combo.Combo));
                     combo.IncreaseCombo();
                 }
             }
@@ -50,4 +51,10 @@ public class WeaponEvents : MonoBehaviour
         projectile.SetActive(true);
     }
 
+    public void SpawnTotem()
+    {
+        Vector3 localTotemPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        GameObject totem = Instantiate(totemPrefab, localTotemPosition + transform.position, Quaternion.Euler(0,0,0));
+        totem.GetComponent<BuffTotem>().PlayerComboHandler = combo;
+    }
 }

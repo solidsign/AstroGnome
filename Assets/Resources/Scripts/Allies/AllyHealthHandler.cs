@@ -2,12 +2,6 @@
 
 public class AllyHealthHandler : HealthHandler
 {
-    private Animator animator;
-    private ComponentsDisabler disabler;
-    private bool dead = false;
-
-    public bool Dead => dead;
-
     private void Start()
     {
         animator = GetComponent<Animator>();

@@ -67,7 +67,7 @@ public class ShootWaveController : MonoBehaviour
         EnemyHealth enemy;
         if (collision.transform.TryGetComponent<EnemyHealth>(out enemy))
         {
-            enemy.DealDamage(collision.transform.position - transform.position, damage);
+            enemy.DealDamage(damage);
         }
     }
 }

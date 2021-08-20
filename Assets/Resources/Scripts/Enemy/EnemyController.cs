@@ -20,6 +20,13 @@ public class EnemyController : MonoBehaviour
     private Transform attackPurpose;
     private bool moving = false;
     private bool attackAvailable = true;
+    private EnemyManager manager;
+    public EnemyManager Manager { set => manager = value; }
+
+    public void DieCallToManager()
+    {
+        manager.DeleteEnemyFromList(this);
+    }
     public Transform AttackPurpose
     {
         get => attackPurpose;
@@ -35,6 +42,10 @@ public class EnemyController : MonoBehaviour
         attacker.AnimationTrigger = attackAnimationTrigger;
         attacker.AttackRadius = attackRadius;
         attacker.AttackPoint = attackPoint;
+        if(attackPurpose == null)
+        {
+            attackPurpose = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 
     private void OnDisable()
@@ -54,6 +65,7 @@ public class EnemyController : MonoBehaviour
     {
         if (cooldownTimer <= 0f)
         {
+            
             if (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance)
             {
                 if(!moving) StartCoroutine(ComeCloserForAttack());

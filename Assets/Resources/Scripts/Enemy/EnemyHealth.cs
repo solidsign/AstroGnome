@@ -6,14 +6,16 @@ public class EnemyHealth : MonoBehaviour
     private Animator animator;
     private ComponentsDisabler components;
     private bool dead = false;
+    private EnemyController controller;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         components = GetComponent<ComponentsDisabler>();
+        controller = GetComponent<EnemyController>();
     }
 
-    public void DealDamage(Vector2 attackDirection, float damage)
+    public void DealDamage(float damage)
     {
         if (dead) return;
         hp -= damage;
@@ -30,5 +32,6 @@ public class EnemyHealth : MonoBehaviour
         components.DisableComponents();
         animator.SetTrigger("Dead");
         dead = true;
+        controller.DieCallToManager();
     }
 }

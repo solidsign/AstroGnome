@@ -3,10 +3,10 @@
 public class HealthHandler : MonoBehaviour
 {
     [SerializeField] protected float hp;
-    private ComponentsDisabler disabler;
-    private Animator animator;
+    protected ComponentsDisabler disabler;
+    protected Animator animator;
     private ComboHandler combo;
-    private bool dead = false;
+    protected bool dead = false;
     public float HP => hp;
 
     private void Start()
