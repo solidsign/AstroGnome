@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class CheatHandler : MonoBehaviour
 {
-    [SerializeField] private List<Cheat> cheats;
+    [SerializeField] private List<Cheat> cheatCodes;
+    [SerializeField] private List<UnityEvent> cheatEvents;
     private int[] submitProgress;
 
     private void Start()
     {
-        submitProgress = new int[cheats.Count];
+        submitProgress = new int[cheatCodes.Count];
     }
 
     private void Update()
@@ -18,15 +21,15 @@ public class CheatHandler : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < cheats.Count; i++)
+        for (int i = 0; i < cheatCodes.Count; i++)
         {
-            if(Input.GetKeyDown(cheats[i].Keys[submitProgress[i]]))
+            if(Input.GetKeyDown(cheatCodes[i].Keys[submitProgress[i]]))
             {
                 ++submitProgress[i];
-                if(submitProgress[i] >= cheats[i].Keys.Count)
+                if(submitProgress[i] >= cheatCodes[i].Keys.Count)
                 {
                     submitProgress[i] = 0;
-                    cheats[i].CheatEvent.Invoke();
+                    cheatEvents[i].Invoke();
                 }
             }
             else
