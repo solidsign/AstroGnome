@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     public void DeleteEnemyFromList(EnemyController enemy)
     {
         enemies.Remove(enemy);
-        SpawnEnemies(2);
+        SpawnEnemies(Mathf.CeilToInt(Random.Range(0f, 2f)));
     }
 
     public void AddNewPlayersObject(Transform obj)
@@ -42,14 +42,14 @@ public class EnemyManager : MonoBehaviour
         {
             sumChance += chance;
         }
+        enemies = new List<EnemyController>(amountOfStartSpawn * 2);
         SpawnEnemies(amountOfStartSpawn);
         StartCoroutine(ChangeAttackPurposes());
-        StartCoroutine(Spawner());
     }
 
     private void SetNewAttackPurpose(EnemyController enemy)
     {
-        int index = Mathf.CeilToInt(Random.Range(0f, PlayerAndAllies.Count));
+        int index = Mathf.CeilToInt(Random.Range(0f, PlayerAndAllies.Count - 1));
         enemy.AttackPurpose = PlayerAndAllies[index];
     }
     private IEnumerator ChangeAttackPurposes()
@@ -59,15 +59,6 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(1f, 5f));
             int index = Mathf.CeilToInt(Random.Range(0f, enemies.Count));
             SetNewAttackPurpose(enemies[index]);
-        }
-    }
-
-    private IEnumerator Spawner()
-    {
-        while (enabled)
-        {
-            yield return new WaitForSeconds(Random.Range(4f, 8f));
-            SpawnEnemies(spawnEmmision);
         }
     }
 

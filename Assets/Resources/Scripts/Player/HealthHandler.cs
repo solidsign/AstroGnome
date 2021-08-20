@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class HealthHandler : MonoBehaviour
 {
@@ -9,6 +10,17 @@ public class HealthHandler : MonoBehaviour
     protected bool dead = false;
     public float HP => hp;
 
+
+    public void RestoreHPFull()
+    {
+        hp = 100;
+    }
+
+    public void GodMod()
+    {
+        dead = true;
+    }
+
     private void Start()
     {
         disabler = GetComponent<ComponentsDisabler>();
@@ -18,11 +30,22 @@ public class HealthHandler : MonoBehaviour
     virtual public void DealDamage(float damage)
     {
         if (dead) return;
+        StopAllCoroutines();
         hp -= damage;
         combo.ResetCombo();
         if(hp <= 0f)
         {
             Die();
+        }
+        StartCoroutine(Heal());
+    }
+
+    private IEnumerator Heal()
+    {
+        while(hp < 100f)
+        {
+            hp = Mathf.Lerp(hp, 100f, 20f * Time.deltaTime);
+            yield return null;
         }
     }
 
