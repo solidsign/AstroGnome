@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3aed355dfe77a458c48c222508360a, type: 3}
   m_Name: Konami
   m_EditorClassIdentifier: 
-  keys: 
-  cheatEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  keys: 11010000110100001201000012010000140100001301000014010000130100006200000061000000

@@ -25,6 +25,13 @@ public class ComboHandler : MonoBehaviour
         }
     }
 
+    public void AbsoluteComboReset()
+    {
+        combo = -100;
+        color.IncreaseIntensity(combo);
+        minCombo = -100;
+    }
+
     public void IncreaseCombo()
     {
         ++combo;
