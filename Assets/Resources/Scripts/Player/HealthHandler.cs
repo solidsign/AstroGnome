@@ -42,9 +42,10 @@ public class HealthHandler : MonoBehaviour
 
     private IEnumerator Heal()
     {
+        yield return new WaitForSeconds(3f);
         while(hp < 100f)
         {
-            hp = Mathf.Lerp(hp, 100f, 20f * Time.deltaTime);
+            hp = Mathf.Lerp(hp, 100f, 5f * Time.deltaTime);
             yield return null;
         }
     }
