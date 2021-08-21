@@ -6,6 +6,9 @@ public class WeaponEvents : MonoBehaviour
     [SerializeField] private float basicDamage;
     [SerializeField] private float comboMultiplier;
     [SerializeField] private GameObject totemPrefab;
+    [SerializeField] private GameObject elementalPrefab;
+    [SerializeField] private GameObject robotPrefab;
+    [SerializeField] private EnemyManager enemies;
     private GameObjectsPool projectiles;
     private Crosshair crosshair;
     private ComboHandler combo;
@@ -56,5 +59,19 @@ public class WeaponEvents : MonoBehaviour
         Vector3 localTotemPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         GameObject totem = Instantiate(totemPrefab, localTotemPosition + transform.position, Quaternion.Euler(0,0,0));
         totem.GetComponent<BuffTotem>().PlayerComboHandler = combo;
+    }
+
+    public void SpawnElemental()
+    {
+        Vector3 localElementalPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        GameObject elemental = Instantiate(elementalPrefab, localElementalPosition + transform.position, Quaternion.Euler(0, 0, 0));
+        elemental.GetComponent<AllyController>().Enemies = enemies;
+    }
+
+    public void SpawnRobot()
+    {
+        Vector3 localElementalPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        GameObject elemental = Instantiate(robotPrefab, localElementalPosition + transform.position, Quaternion.Euler(0, 0, 0));
+        elemental.GetComponent<AllyController>().Enemies = enemies;
     }
 }
