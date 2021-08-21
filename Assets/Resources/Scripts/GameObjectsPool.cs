@@ -12,6 +12,13 @@ public class GameObjectsPool : MonoBehaviour
         CreateGameObjectsPool(amountOfObjectsInPool, projectilePrefab);
     }
 
+    private void OnDestroy()
+    {
+        foreach (var obj in objects)
+        {
+            Destroy(obj);
+        }
+    }
     public void CreateGameObjectsPool(int capacity, GameObject prefab)
     {
         objects = new Queue<GameObject>(capacity);

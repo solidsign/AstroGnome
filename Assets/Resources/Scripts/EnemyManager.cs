@@ -39,6 +39,24 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void DeletePlayersObject(Transform obj)
+    {
+        PlayerAndAllies.Remove(obj);
+        foreach (var enemy in enemies)
+        {
+            if(enemy.AttackPurpose == obj)
+            {
+                SetNewAttackPurpose(enemy);
+            }
+        }
+    }
+
+    private IEnumerator DeleteEnemyFromScene(EnemyController enemy)
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(enemy.gameObject);
+    }
+
     private void Start()
     {
         foreach (var chance in spawnChances)
@@ -60,7 +78,7 @@ public class EnemyManager : MonoBehaviour
         while (enabled)
         {
             yield return new WaitForSeconds(Random.Range(1f, 5f));
-            int index = Mathf.CeilToInt(Random.Range(0f, enemies.Count));
+            int index = Mathf.CeilToInt(Random.Range(0f, enemies.Count - 1));
             SetNewAttackPurpose(enemies[index]);
         }
     }
