@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AllyController : MonoBehaviour
@@ -23,10 +22,7 @@ public class AllyController : MonoBehaviour
         attackPurpose = enemies.GetRandomAliveEnemy();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
+        StartCoroutine(ComeForAttack());
     }
 
     private IEnumerator ComeForAttack()
@@ -42,14 +38,29 @@ public class AllyController : MonoBehaviour
         StartCoroutine(CooldownTimer());
     }
 
+    private IEnumerator MoveInRandomDirectionWhileCooldown()
+    {
+        Vector3 moveDirection = attackPurpose.position - transform.position;
+        moveDirection = moveDirection.normalized;
+        moveDirection += Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        moveDirection = moveDirection.normalized;
+        while (!cooldownEnded)
+        {
+            rb.MovePosition(transform.position + speed * Time.deltaTime * moveDirection);
+            yield return null;
+        }
+    }
+
     private IEnumerator CooldownTimer()
     {
         cooldownEnded = false;
+        StartCoroutine(MoveInRandomDirectionWhileCooldown());
         yield return new WaitForSeconds(cooldown);
         cooldownEnded = true;
+        StartCoroutine(ComeForAttack());
     }
 
-    private void MeleeAttack()
+    public void MeleeAttack()
     {
         var colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);
 
