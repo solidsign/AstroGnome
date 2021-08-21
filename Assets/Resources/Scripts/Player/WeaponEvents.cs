@@ -54,6 +54,7 @@ public class WeaponEvents : MonoBehaviour
         projectile.SetActive(true);
     }
 
+    // TODO: REPLACE THIS WITH SMTH BETTER
     public void SpawnTotem()
     {
         Vector3 localTotemPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;

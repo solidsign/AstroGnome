@@ -79,6 +79,9 @@ public class AllyController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(attackPoint.position, attackDistance);
     }
 }
