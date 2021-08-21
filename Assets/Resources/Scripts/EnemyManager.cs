@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<float> spawnChances;
     [SerializeField] private int amountOfStartSpawn;
     [SerializeField] private int spawnEmmision;
+    [SerializeField] private int maxNumberOfEnemies;
     [Header("Spawn Area")]
     [SerializeField] private Vector2 minCoords;
     [SerializeField] private Vector2 maxCoords;
@@ -26,6 +27,7 @@ public class EnemyManager : MonoBehaviour
     {
         enemies.Remove(enemy);
         SpawnEnemies(Mathf.CeilToInt(Random.Range(0f, 2f)));
+        StartCoroutine(DeleteEnemyFromScene(enemy));
     }
 
     public void AddNewPlayersObject(Transform obj)
@@ -85,6 +87,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemies(int amount)
     {
+        amount = Mathf.Clamp(amount, 0, maxNumberOfEnemies - enemies.Count);
         for (int i = 0; i < amount; i++)
         {
             float res = Random.Range(0f, sumChance);

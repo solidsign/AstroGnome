@@ -127,8 +127,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 1
-  m_Mass: 0.068851374
+  m_UseAutoMass: 0
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -219,6 +219,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28c6c5b77037f7743979ff70d7311c1f, type: 2}
   - {fileID: 11400000, guid: 4d9580b46af9bc548a45863858da287a, type: 2}
   - {fileID: 11400000, guid: 93d03a353a8010942a55bcae156c6060, type: 2}
+  - {fileID: 11400000, guid: 3110ed7c9b3a2cf41bf3f039c7edce0d, type: 2}
 --- !u!114 &5185575751084018010
 MonoBehaviour:
   m_ObjectHideFlags: 0
