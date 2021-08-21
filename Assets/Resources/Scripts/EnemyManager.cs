@@ -65,7 +65,7 @@ public class EnemyManager : MonoBehaviour
         {
             sumChance += chance;
         }
-        enemies = new List<EnemyController>(amountOfStartSpawn * 2);
+        enemies = new List<EnemyController>(maxNumberOfEnemies);
         SpawnEnemies(amountOfStartSpawn);
         StartCoroutine(ChangeAttackPurposes());
     }

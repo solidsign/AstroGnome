@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     private bool moving = false;
     private bool attackAvailable = true;
     private EnemyManager manager;
-    public EnemyManager Manager { set => manager = value; }
+    public EnemyManager Manager { get => manager;  set => manager = value; }
 
     public void DieCallToManager()
     {
