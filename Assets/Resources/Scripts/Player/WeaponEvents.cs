@@ -60,6 +60,7 @@ public class WeaponEvents : MonoBehaviour
         Vector3 localTotemPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         GameObject totem = Instantiate(totemPrefab, localTotemPosition + transform.position, Quaternion.Euler(0,0,0));
         totem.GetComponent<BuffTotem>().PlayerComboHandler = combo;
+        enemies.AddNewPlayersObject(totem.transform);
     }
 
     public void SpawnElemental()
@@ -67,6 +68,7 @@ public class WeaponEvents : MonoBehaviour
         Vector3 localElementalPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         GameObject elemental = Instantiate(elementalPrefab, localElementalPosition + transform.position, Quaternion.Euler(0, 0, 0));
         elemental.GetComponent<AllyController>().Enemies = enemies;
+        enemies.AddNewPlayersObject(elemental.transform);
     }
 
     public void SpawnRobot()
@@ -74,5 +76,6 @@ public class WeaponEvents : MonoBehaviour
         Vector3 localElementalPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         GameObject elemental = Instantiate(robotPrefab, localElementalPosition + transform.position, Quaternion.Euler(0, 0, 0));
         elemental.GetComponent<AllyController>().Enemies = enemies;
+        enemies.AddNewPlayersObject(elemental.transform);
     }
 }
