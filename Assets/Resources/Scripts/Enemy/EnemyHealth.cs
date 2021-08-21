@@ -15,16 +15,17 @@ public class EnemyHealth : MonoBehaviour
         controller = GetComponent<EnemyController>();
     }
 
-    public void DealDamage(float damage)
+    public bool DealDamage(float damage)
     {
-        if (dead) return;
+        if (dead) return true;
         hp -= damage;
         if(hp <= 0)
         {
             Die();
-            return;
+            return true;
         }
         animator.SetTrigger("Damaged");
+        return false;
     }
 
     private void Die()

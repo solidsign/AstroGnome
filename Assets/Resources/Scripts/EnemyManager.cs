@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -18,6 +17,10 @@ public class EnemyManager : MonoBehaviour
     private List<EnemyController> enemies;
     private float sumChance;
 
+    public Transform GetRandomAliveEnemy()
+    {
+        return enemies[Mathf.CeilToInt(Random.Range(0f, enemies.Count - 1))].transform;
+    }
 
     public void DeleteEnemyFromList(EnemyController enemy)
     {

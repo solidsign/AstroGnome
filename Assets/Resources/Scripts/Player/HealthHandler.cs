@@ -36,6 +36,7 @@ public class HealthHandler : MonoBehaviour
         if(hp <= 0f)
         {
             Die();
+            return;
         }
         StartCoroutine(Heal());
     }

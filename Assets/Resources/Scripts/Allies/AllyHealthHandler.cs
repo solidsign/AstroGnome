@@ -23,7 +23,7 @@ public class AllyHealthHandler : HealthHandler
     private void Die()
     {
         dead = true;
-        disabler.DisableComponents();
         animator.SetTrigger("Dead");
+        disabler.DisableComponents();
     }
 }
