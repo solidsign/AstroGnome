@@ -7,8 +7,6 @@ public class Crosshair : MonoBehaviour
     private Camera cam;
     private Vector3 mousePos = Vector3.zero;
 
-    public GameObject pref;
-
     public Vector3 AttackPoint
     {
         get

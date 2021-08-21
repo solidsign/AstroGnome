@@ -217,6 +217,8 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: bb3bf4bedc81b7e42b7b9d7b558400b0, type: 2}
   - {fileID: 11400000, guid: 28c6c5b77037f7743979ff70d7311c1f, type: 2}
+  - {fileID: 11400000, guid: 4d9580b46af9bc548a45863858da287a, type: 2}
+  - {fileID: 11400000, guid: 93d03a353a8010942a55bcae156c6060, type: 2}
 --- !u!114 &5185575751084018010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64f255867cd9484fb06dd82709be54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startIntensivity: 1
-  intensivityMultipliyer: 1.1
+  startIntensivity: 0.8
+  intensivityMultipliyer: 1.05
   material: {fileID: 2100000, guid: 637dcd7af0689ab46a34ea414783be6f, type: 2}
   colorChangeSpeed: 5
 --- !u!114 &5197020705709404156
@@ -272,7 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceFromCenterToAttackPoint: 0.67
   centerOffset: {x: 0, y: 0.5, z: 0}
-  pref: {fileID: 1005127127719034163, guid: cfa9dbb65ae9be0448a43bdd9c3cdb14, type: 3}
 --- !u!114 &2621231718847922893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,9 +298,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9542b47a83e30e49a4e114a7c850fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeAttackRadius: 0.7
-  basicDamage: 1
+  meleeAttackRadius: 1
+  basicDamage: 2
   comboMultiplier: 1.2
+  totemPrefab: {fileID: 8031615126737397365, guid: b63952ce548a67b4e873c2217f563be7,
+    type: 3}
+  elementalPrefab: {fileID: 3492134970469087282, guid: 1fbc8112e7ce24c4ebaa5c70b765f8d0,
+    type: 3}
+  robotPrefab: {fileID: 5769791178704250591, guid: 198dfc338fe3fe74798e569182ff7bd2,
+    type: 3}
+  enemies: {fileID: 0}
 --- !u!114 &1405064298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce5996cf18053643a5c5f63984b7797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combo: 0
 --- !u!114 &8796192146486726451
 MonoBehaviour:
   m_ObjectHideFlags: 0
