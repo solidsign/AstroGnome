@@ -53,7 +53,8 @@ MonoBehaviour:
   - 30
   - 30
   - 10
-  amountOfStartSpawn: 5
-  spawnEmmision: 2
+  amountOfStartSpawn: 1
+  spawnEmmision: 0
+  maxNumberOfEnemies: 0
   minCoords: {x: -11, y: -7}
   maxCoords: {x: 11, y: 7}
