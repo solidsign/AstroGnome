@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SpawnTotem
   m_EditorClassIdentifier: 
   color: {r: 0.6737711, g: 0, b: 0.7924528, a: 1}
-  animationTrigger: Expression
+  animationTrigger: TotemSpawn
   cooldown: 4
