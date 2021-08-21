@@ -47,7 +47,7 @@ public class ShootWaveController : MonoBehaviour
     {
         damage = defaultDamage * multiplier;
         speed = defaultSpeed * Mathf.Sqrt(multiplier);
-        color.Intensity = multiplier;
+        color.Intensity = Mathf.Sqrt(multiplier);
     }
 
     public void DeactivateWave()

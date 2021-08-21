@@ -991,6 +991,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7446648542200081202, guid: 9581167ba073cbb4f86a470be933ecfb,
+        type: 3}
+      propertyPath: startIntensivity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7446648542200081202, guid: 9581167ba073cbb4f86a470be933ecfb,
+        type: 3}
+      propertyPath: intensivityMultipliyer
+      value: 1.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5687496867986344547, guid: 9581167ba073cbb4f86a470be933ecfb,
         type: 3}
       propertyPath: m_RootOrder
@@ -1079,12 +1089,12 @@ PrefabInstance:
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
       propertyPath: cheatCodes.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
       propertyPath: cheatEvents.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
@@ -1118,6 +1128,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
+      propertyPath: cheatCodes.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 041b02e8df1c75c429efcfb5916542b0,
+        type: 2}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
       propertyPath: cheatEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1134,6 +1150,16 @@ PrefabInstance:
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
       propertyPath: cheatEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
@@ -1158,6 +1184,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
+      propertyPath: cheatEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
       propertyPath: cheatEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1267516224}
@@ -1174,6 +1210,16 @@ PrefabInstance:
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
       propertyPath: cheatEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1267516224}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1267516224}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1267516224}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
@@ -1198,6 +1244,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
+      propertyPath: cheatEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
       propertyPath: cheatEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GodMod
       objectReference: {fileID: 0}
@@ -1214,7 +1270,17 @@ PrefabInstance:
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
       propertyPath: cheatEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GodMod
+      value: IDDQD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Noclip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IDKFA
       objectReference: {fileID: 0}
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
@@ -1234,6 +1300,16 @@ PrefabInstance:
     - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
         type: 3}
       propertyPath: cheatEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588514812334092485, guid: 251880afdd4e3054eb4bf40531f0c7e2,
+        type: 3}
+      propertyPath: cheatEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7220864832734060902, guid: 251880afdd4e3054eb4bf40531f0c7e2,
