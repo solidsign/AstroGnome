@@ -22,4 +22,8 @@ public class FireTotem : MonoBehaviour
         projectile.SetActive(true);
     }
 
+    private void OnDisable()
+    {
+        Destroy(gameObject, 5f);
+    }
 }
