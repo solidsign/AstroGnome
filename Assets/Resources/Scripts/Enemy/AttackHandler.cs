@@ -17,6 +17,7 @@ public class AttackHandler : MonoBehaviour
     private float damage;
     private Transform attackPoint;
     private EnemyController enemyController;
+    private AudioHandler audioHandler;
 
     public string AnimationTrigger { set => animationTrigger = value; }
     public float AttackRadius { set => attackRadius = value; }
@@ -28,6 +29,7 @@ public class AttackHandler : MonoBehaviour
         {
             enemyController = GetComponent<EnemyController>();
         }
+        audioHandler = GetComponent<EditableAudioHandler>();
     }
     public void Attack(Vector2 direction, float damage)
     {
@@ -41,6 +43,7 @@ public class AttackHandler : MonoBehaviour
 
     public void ShootProjectile()
     {
+        audioHandler.PlaySound("Attack");
         GameObject projectile = projectiles.GetObject();
 
         projectile.transform.position = attackPoint.position;
@@ -55,6 +58,7 @@ public class AttackHandler : MonoBehaviour
 
     public void MeleeAttack()
     {
+        audioHandler.PlaySound("Attack");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);
         
         HealthHandler hp;
@@ -69,6 +73,7 @@ public class AttackHandler : MonoBehaviour
 
     public void SpawnFireTotems()
     {
+        audioHandler.PlaySound("Attack");
         Vector3[] positions = new Vector3[4];
 
         positions[0] = attackPoint.position + transform.up * attackRadius;

@@ -15,3 +15,5 @@ MonoBehaviour:
   color: {r: 0.93333334, g: 0.37834066, b: 0, a: 1}
   animationTrigger: Hit
   cooldown: 3
+  soundName: slush
+  soundVolume: 1

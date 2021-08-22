@@ -6,12 +6,12 @@ public class AudioHandler : MonoBehaviour
     protected Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>(5);
     protected AudioSource src;
     protected const string PATH = "Sound/SFX/";
-    protected void Start()
+    virtual protected void Start()
     {
         src = GetComponent<AudioSource>();
     }
     
-    public void PlaySound(string soundName, float volume)
+    public void PlaySound(string soundName, float volume = 1f)
     {
         if (!audioClips.ContainsKey(soundName))
         {

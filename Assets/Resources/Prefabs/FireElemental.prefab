@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 653331077889665705}
   - component: {fileID: 7061466506415030112}
   - component: {fileID: 6194240467625191318}
+  - component: {fileID: -5115279995566996617}
   m_Layer: 9
   m_Name: FireElemental
   m_TagString: Enemy
@@ -217,7 +218,6 @@ MonoBehaviour:
   attackRadius: 0.75
   meleeDamage: 1
   attackAnimationTrigger: Attack
-  attackPurpose: {fileID: 0}
 --- !u!114 &653331077889665705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +259,26 @@ MonoBehaviour:
   - {fileID: 7061466506415030112}
   - {fileID: 7655313347652737048}
   - {fileID: 3334805843611590178}
+--- !u!114 &-5115279995566996617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163797867309062296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5680868f3d70e244597b3eeefacf0504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundNames:
+  - Attack
+  - Death
+  - Damaged
+  sounds:
+  - {fileID: 8300000, guid: 5f22575d2169f13428823e80d14bb103, type: 3}
+  - {fileID: 8300000, guid: f0f0c2eff234a0e4c8ba6a0a00c239db, type: 3}
+  - {fileID: 8300000, guid: b22661b2623180d42ad9ebf6a1e28a5f, type: 3}
 --- !u!1 &163797867818053454
 GameObject:
   m_ObjectHideFlags: 0

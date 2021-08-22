@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class EditableAudioHandler : AudioHandler
 {
-    protected new Dictionary<string, AudioClip> audioClips;
+    [SerializeField] private List<string> soundNames;
+    [SerializeField] private List<AudioClip> sounds;
+
+    protected override void Start()
+    {
+        base.Start();
+        for (int i = 0; i < soundNames.Count; i++)
+        {
+            audioClips.Add(soundNames[i], sounds[i]);
+        }
+    }
 }

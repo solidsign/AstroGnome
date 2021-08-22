@@ -15,3 +15,5 @@ MonoBehaviour:
   color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
   animationTrigger: RobotSpawn
   cooldown: 4
+  soundName: robotSpawn
+  soundVolume: 1
