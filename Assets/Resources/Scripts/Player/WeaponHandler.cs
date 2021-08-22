@@ -7,6 +7,7 @@ public class WeaponHandler : MonoBehaviour
     private WeaponSwitcher switcher;
     private float cooldownTimer;
     private Animator animator;
+    private AudioHandler audioHandler;
 
     public List<Weapon> Weapons => weapons;
 
@@ -15,6 +16,12 @@ public class WeaponHandler : MonoBehaviour
         switcher = GetComponent<WeaponSwitcher>();
         cooldownTimer = 0f;
         animator = GetComponent<Animator>();
+        audioHandler = GetComponent<AudioHandler>();
+        foreach (var weapon in weapons)
+        {
+            audioHandler.AddSound(weapon.SoundName);
+        }
+        audioHandler.AddSound("WeaponSwitch");
     }
 
     private void Update()
@@ -28,11 +35,13 @@ public class WeaponHandler : MonoBehaviour
         if (Input.GetButtonDown("WeaponSwitch"))
         {
             cooldownTimer = 0f;
+            audioHandler.PlaySound("WeaponSwitch");
             switcher.SwitchWeapon();
         }
 
-        if (Input.GetButtonDown("Fire1") && cooldownTimer <= 0)
+        if (Input.GetButtonDown("Fire1") && cooldownTimer <= 0f)
         {
+            audioHandler.PlaySound(weapons[switcher.ActiveWeapon].SoundName);
             animator.SetTrigger(weapons[switcher.ActiveWeapon].AnimationTrigger);
             cooldownTimer = weapons[switcher.ActiveWeapon].Cooldown;
         }

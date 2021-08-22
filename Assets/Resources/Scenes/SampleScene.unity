@@ -288,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1741954288}
   - component: {fileID: 1741954287}
+  - component: {fileID: 1741954289}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -326,6 +327,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1741954289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741954286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72102478c4c29a945b8aba45e76509cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 766638802}
+  maxVignetteIntensity: 0.5
+  maxChromaticAberationIntensity: 1
+  maxHP: 100
+  intensityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.32199407
+      outSlope: -0.32199407
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.21365254
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.8304312
+      outSlope: -2.8304312
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0652864
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  intensityChangeSpeed: 5
 --- !u!114 &1799473638 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
@@ -739,20 +781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8514181761807618337, guid: 01838fa44eae15b40b1401192d0766c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
         type: 3}
-      propertyPath: spawnEmmision
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
-        type: 3}
-      propertyPath: amountOfStartSpawn
-      value: 1
+      propertyPath: maxNumberOfEnemies
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
         type: 3}
