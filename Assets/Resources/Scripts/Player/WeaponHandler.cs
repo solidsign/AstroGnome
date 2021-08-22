@@ -35,15 +35,16 @@ public class WeaponHandler : MonoBehaviour
         if (Input.GetButtonDown("WeaponSwitch"))
         {
             cooldownTimer = 0f;
-            audioHandler.PlaySound("WeaponSwitch");
+            //audioHandler.PlaySound("WeaponSwitch");
             switcher.SwitchWeapon();
         }
 
         if (Input.GetButtonDown("Fire1") && cooldownTimer <= 0f)
         {
-            audioHandler.PlaySound(weapons[switcher.ActiveWeapon].SoundName);
-            animator.SetTrigger(weapons[switcher.ActiveWeapon].AnimationTrigger);
-            cooldownTimer = weapons[switcher.ActiveWeapon].Cooldown;
+            int activeWeapon = switcher.ActiveWeapon;
+            audioHandler.PlaySound(weapons[activeWeapon].SoundName, weapons[activeWeapon].SoundVolume);
+            animator.SetTrigger(weapons[activeWeapon].AnimationTrigger);
+            cooldownTimer = weapons[activeWeapon].Cooldown;
         }
     }
 

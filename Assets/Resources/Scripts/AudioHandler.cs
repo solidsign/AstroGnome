@@ -1,21 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
-    private Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>(5);
-    private AudioSource src;
-    private const string PATH = "Sound/SFX/";
-    void Start()
+    protected Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>(5);
+    protected AudioSource src;
+    protected const string PATH = "Sound/SFX/";
+    protected void Start()
     {
         src = GetComponent<AudioSource>();
     }
-
     
-    public void PlaySound(string soundName)
+    public void PlaySound(string soundName, float volume)
     {
-        src.PlayOneShot(audioClips[soundName]);
+        if (!audioClips.ContainsKey(soundName))
+        {
+            Debug.LogWarning(name + "tried to play sound " + soundName + "but it does not exist");
+            return;
+        }
+
+        src.PlayOneShot(audioClips[soundName], volume);
     }
 
     public void AddSound(string soundName)
