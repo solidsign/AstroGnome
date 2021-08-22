@@ -2,16 +2,17 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class CheatHandler : MonoBehaviour
 {
     [SerializeField] private List<Cheat> cheatCodes;
     [SerializeField] private List<UnityEvent> cheatEvents;
+    [SerializeField] private AudioClip audioClip;
     private int[] submitProgress;
-
+    private AudioSource audioSource;
     private void Start()
     {
         submitProgress = new int[cheatCodes.Count];
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -30,6 +31,7 @@ public class CheatHandler : MonoBehaviour
                 {
                     submitProgress[i] = 0;
                     cheatEvents[i].Invoke();
+                    audioSource.PlayOneShot(audioClip);
                 }
             }
             else

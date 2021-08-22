@@ -18,7 +18,7 @@ public class HealthHandler : MonoBehaviour
 
     public void GodMod()
     {
-        dead = true;
+        dead = !dead;
     }
 
     private void Start()

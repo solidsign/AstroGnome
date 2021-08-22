@@ -3,6 +3,7 @@
 public class WeaponEvents : MonoBehaviour
 {
     [SerializeField] private float meleeAttackRadius;
+    [SerializeField] private float spawnRadius;
     [SerializeField] private float basicDamage;
     [SerializeField] private float comboMultiplier;
     [SerializeField] private GameObject totemPrefab;
@@ -57,24 +58,24 @@ public class WeaponEvents : MonoBehaviour
     // TODO: REPLACE THIS WITH SMTH BETTER
     public void SpawnTotem()
     {
-        Vector3 localTotemPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
-        GameObject totem = Instantiate(totemPrefab, localTotemPosition + transform.position, Quaternion.Euler(0,0,0));
+        Vector3 localTotemPosition = Random.Range(-1f, 0f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        GameObject totem = Instantiate(totemPrefab, localTotemPosition * spawnRadius + transform.position, Quaternion.Euler(0,0,0));
         totem.GetComponent<BuffTotem>().PlayerComboHandler = combo;
         enemies.AddNewPlayersObject(totem.transform);
     }
 
     public void SpawnElemental()
     {
-        Vector3 localElementalPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
-        GameObject elemental = Instantiate(elementalPrefab, localElementalPosition + transform.position, Quaternion.Euler(0, 0, 0));
+        Vector3 localElementalPosition = Random.Range(-1f, 0f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        GameObject elemental = Instantiate(elementalPrefab, localElementalPosition * spawnRadius + transform.position, Quaternion.Euler(0, 0, 0));
         elemental.GetComponent<AllyController>().Enemies = enemies;
         enemies.AddNewPlayersObject(elemental.transform);
     }
 
     public void SpawnRobot()
     {
-        Vector3 localElementalPosition = Random.Range(-1f, 1f) * transform.up + Random.Range(-1f, 1f) * transform.right;
-        GameObject elemental = Instantiate(robotPrefab, localElementalPosition + transform.position, Quaternion.Euler(0, 0, 0));
+        Vector3 localElementalPosition = Random.Range(-1f, 0f) * transform.up + Random.Range(-1f, 1f) * transform.right;
+        GameObject elemental = Instantiate(robotPrefab, localElementalPosition * spawnRadius + transform.position, Quaternion.Euler(0, 0, 0));
         elemental.GetComponent<AllyController>().Enemies = enemies;
         enemies.AddNewPlayersObject(elemental.transform);
     }
