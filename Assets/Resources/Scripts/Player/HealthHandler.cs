@@ -21,7 +21,7 @@ public class HealthHandler : MonoBehaviour
         dead = !dead;
     }
 
-    private void Start()
+    virtual protected void Start()
     {
         disabler = GetComponent<ComponentsDisabler>();
         animator = GetComponent<Animator>();

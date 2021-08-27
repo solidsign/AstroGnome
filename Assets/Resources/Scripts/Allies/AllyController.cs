@@ -20,12 +20,14 @@ public class AllyController : MonoBehaviour
     private bool attackAvailable = false;
     private Vector3 moveDirection = Vector3.zero;
     private bool facingRight = true;
+    private AudioHandler audioHandler;
 
     private void Start()
     {
         attackPurpose = enemies.GetRandomAliveEnemy();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioHandler = GetComponent<AudioHandler>();
         GetComponent<AllyHealthHandler>().Enemies = enemies;
         StartCoroutine(ComeForAttack());
     }
@@ -43,6 +45,7 @@ public class AllyController : MonoBehaviour
             else if (attackAvailable)
             {
                 StartCoroutine(CooldownTimer());
+                audioHandler.PlaySound("Attack");
                 animator.SetTrigger("Attack");
                 attackAvailable = false;
             }

@@ -6,15 +6,19 @@ public class EnemyProjectileController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damage;
     [SerializeField] private float flyTime;
+    [SerializeField] private AudioClip hitSound;
 
+    private AudioSource audioSource;
     private Rigidbody2D rb;
     private Animator animator;
     private bool instanciated = false;
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -48,6 +52,7 @@ public class EnemyProjectileController : MonoBehaviour
         HealthHandler hp;
         if(collision.TryGetComponent<HealthHandler>(out hp))
         {
+            audioSource.PlayOneShot(hitSound);
             hp.DealDamage(damage);
             StopAllCoroutines();
             animator.SetTrigger("Disable");

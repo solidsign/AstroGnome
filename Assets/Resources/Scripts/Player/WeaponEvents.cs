@@ -61,6 +61,7 @@ public class WeaponEvents : MonoBehaviour
         Vector3 localTotemPosition = Random.Range(-1f, 0f) * transform.up + Random.Range(-1f, 1f) * transform.right;
         GameObject totem = Instantiate(totemPrefab, localTotemPosition * spawnRadius + transform.position, Quaternion.Euler(0,0,0));
         totem.GetComponent<BuffTotem>().PlayerComboHandler = combo;
+        totem.GetComponent<AllyHealthHandler>().Enemies = enemies;
         enemies.AddNewPlayersObject(totem.transform);
     }
 

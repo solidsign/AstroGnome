@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3838054073200262982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0.57, z: 0}
+  m_LocalPosition: {x: 0.524, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6733708444802985706}
@@ -50,6 +50,8 @@ GameObject:
   - component: {fileID: 565951451}
   - component: {fileID: 565951452}
   - component: {fileID: 565951453}
+  - component: {fileID: -2978739209566775137}
+  - component: {fileID: 8786446922449928483}
   m_Layer: 0
   m_Name: MafiaPistol
   m_TagString: Untagged
@@ -181,12 +183,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   attackPoint: {fileID: 3386372317991775348}
-  attackDistance: 5.68
+  attackDistance: 7.31
   attackCooldown: 1.2
   attackRadius: 0
   meleeDamage: 0
   attackAnimationTrigger: Attack
-  attackPurpose: {fileID: 0}
 --- !u!114 &1282336049730260277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,3 +307,120 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5912051, y: 0.20257282}
   m_EdgeRadius: 0
+--- !u!114 &-2978739209566775137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733708444802985719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5680868f3d70e244597b3eeefacf0504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundNames:
+  - Attack
+  - Damaged
+  - Death
+  sounds:
+  - {fileID: 8300000, guid: 8aedb643e1151a048b5c3235375c99ab, type: 3}
+  - {fileID: 8300000, guid: c924a6bb8ef46dc49a61b55ac89dad8e, type: 3}
+  - {fileID: 8300000, guid: bc340f37b17386c428e4fd81628cb1ab, type: 3}
+--- !u!82 &8786446922449928483
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733708444802985719}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 171873749780967128, guid: c5d37500fea066c4286b146d5008bd48,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.6
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

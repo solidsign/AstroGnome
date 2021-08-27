@@ -2,11 +2,13 @@
 
 public class AllyHealthHandler : HealthHandler
 {
+    private AudioHandler audioHandler;
     public EnemyManager Enemies { get; set; }
-    private void Start()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
         disabler = GetComponent<ComponentsDisabler>();
+        audioHandler = GetComponent<AudioHandler>(); ;
     }
 
     public override void DealDamage(float damage)
@@ -19,6 +21,7 @@ public class AllyHealthHandler : HealthHandler
             return;
         }
         animator.SetTrigger("Damaged");
+        audioHandler.PlaySound("Damaged");
     }
 
     private void Die()
@@ -26,6 +29,6 @@ public class AllyHealthHandler : HealthHandler
         Enemies.DeletePlayersObject(transform);
         dead = true;
         animator.SetTrigger("Dead");
-        disabler.DisableComponents();
+        audioHandler.PlaySound("Death");
     }
 }

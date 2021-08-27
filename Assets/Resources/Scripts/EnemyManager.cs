@@ -14,27 +14,29 @@ public class EnemyManager : MonoBehaviour
     [Header("Spawn Area")]
     [SerializeField] private Vector2 minCoords;
     [SerializeField] private Vector2 maxCoords;
-
+    [Header("Spawn Sounds")]
+    [SerializeField] private List<AudioClip> sounds;
     private List<EnemyController> enemies;
     private float sumChance;
+    private AudioSource audioSource;
 
     public Transform GetRandomAliveEnemy()
     {
-        return enemies[Mathf.CeilToInt(Random.Range(0f, enemies.Count - 1))].transform;
+        return enemies[Random.Range(0, enemies.Count - 1)].transform;
     }
 
     public void DeleteEnemyFromList(EnemyController enemy)
     {
         enemies.Remove(enemy);
-        SpawnEnemies(Mathf.CeilToInt(Random.Range(0f, 2f)));
+        SpawnEnemies(Random.Range(0, 2));
         StartCoroutine(DeleteEnemyFromScene(enemy));
     }
 
     public void AddNewPlayersObject(Transform obj)
     {
         PlayerAndAllies.Add(obj);
-        int amount = Mathf.RoundToInt(Random.Range(1f, enemies.Count / 3));
-        int startIndex = Mathf.CeilToInt(Random.Range(0f, enemies.Count - amount));
+        int amount = Random.Range(1, enemies.Count / 3);
+        int startIndex = Random.Range(0, enemies.Count - amount);
         for (int i = startIndex; i < startIndex + amount; i++)
         {
             enemies[i].AttackPurpose = obj;
@@ -66,13 +68,14 @@ public class EnemyManager : MonoBehaviour
             sumChance += chance;
         }
         enemies = new List<EnemyController>(maxNumberOfEnemies);
+        audioSource = GetComponent<AudioSource>();
         SpawnEnemies(amountOfStartSpawn);
         StartCoroutine(ChangeAttackPurposes());
     }
 
     private void SetNewAttackPurpose(EnemyController enemy)
     {
-        int index = Mathf.CeilToInt(Random.Range(0f, PlayerAndAllies.Count - 1));
+        int index = Random.Range(0, PlayerAndAllies.Count - 1);
         enemy.AttackPurpose = PlayerAndAllies[index];
     }
     private IEnumerator ChangeAttackPurposes()
@@ -80,7 +83,7 @@ public class EnemyManager : MonoBehaviour
         while (enabled)
         {
             yield return new WaitForSeconds(Random.Range(1f, 5f));
-            int index = Mathf.CeilToInt(Random.Range(0f, enemies.Count - 1));
+            int index = Random.Range(0, enemies.Count - 1);
             SetNewAttackPurpose(enemies[index]);
         }
     }
@@ -88,6 +91,8 @@ public class EnemyManager : MonoBehaviour
     private void SpawnEnemies(int amount)
     {
         amount = Mathf.Clamp(amount, 0, maxNumberOfEnemies - enemies.Count);
+        if (amount == 0) return;
+        Invoke(nameof(PlaySpawnSound), 0.05f);
         for (int i = 0; i < amount; i++)
         {
             float res = Random.Range(0f, sumChance);
@@ -109,5 +114,10 @@ public class EnemyManager : MonoBehaviour
                 chanceChecker += spawnChances[chanceIndex];
             }
         }
+    }
+
+    private void PlaySpawnSound()
+    {
+        audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
     }
 }
