@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava
+  m_Name: LavaLessBright
   m_Shader: {fileID: -6465566751694194690, guid: 0ca406e558612bc4187354e138fc328f,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -30,4 +30,4 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _color: {r: 2.9960785, g: 0.1254902, b: 0, a: 0}
+    - _color: {r: 0.98833734, g: 0.04139633, b: 0, a: 0}
