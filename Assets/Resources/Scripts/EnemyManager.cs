@@ -14,6 +14,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Spawn Area")]
     [SerializeField] private Vector2 minCoords;
     [SerializeField] private Vector2 maxCoords;
+    [Header("Excluded spawn area")]
+    [SerializeField] private Vector2 minCoordsEx;
+    [SerializeField] private Vector2 maxCoordsEx;
     [Header("Spawn Sounds")]
     [SerializeField] private List<AudioClip> sounds;
     private List<EnemyController> enemies;
@@ -102,7 +105,27 @@ public class EnemyManager : MonoBehaviour
             {
                 if(res <= chanceChecker)
                 {
-                    Vector3 pos = new Vector3(Random.Range(minCoords.x, maxCoords.x), Random.Range(minCoords.y, maxCoords.y), 0);
+                    float x = Random.Range(minCoords.x, maxCoords.x);
+                    if(x < (minCoordsEx.x + maxCoordsEx.x) / 2f)
+                    {
+                        x = Mathf.Clamp(x, minCoords.x, minCoordsEx.x);
+                    }
+                    else
+                    {
+                        x = Mathf.Clamp(x, maxCoords.x, maxCoordsEx.x);
+                    }
+
+                    float y = Random.Range(minCoords.y, maxCoords.y);
+                    if (y < (minCoordsEx.y + maxCoordsEx.y) / 2f)
+                    {
+                        y = Mathf.Clamp(y, minCoords.y, minCoordsEx.y);
+                    }
+                    else
+                    {
+                        y = Mathf.Clamp(y, maxCoordsEx.y, maxCoords.y);
+                    }
+
+                    Vector3 pos = new Vector3(x, y, 0f);
                     GameObject enem = Instantiate(enemyPrefabs[chanceIndex], pos, Quaternion.Euler(0,0,0));
                     EnemyController enemy = enem.GetComponent<EnemyController>();
                     enemy.Manager = this;
@@ -116,8 +139,19 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+
     private void PlaySpawnSound()
     {
         audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(minCoords, 0.2f);
+        Gizmos.DrawWireSphere(maxCoords, 0.2f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(minCoordsEx, 0.2f);
+        Gizmos.DrawWireSphere(maxCoordsEx, 0.2f);
     }
 }
