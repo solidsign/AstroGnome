@@ -25,20 +25,20 @@ public class EnemyManager : MonoBehaviour
 
     public Transform GetRandomAliveEnemy()
     {
-        return enemies[Random.Range(0, enemies.Count - 1)].transform;
+        return enemies[Random.Range(0, enemies.Count)].transform;
     }
 
     public void DeleteEnemyFromList(EnemyController enemy)
     {
         enemies.Remove(enemy);
-        SpawnEnemies(Random.Range(0, 2));
+        SpawnEnemies(Random.Range(0, 3));
         StartCoroutine(DeleteEnemyFromScene(enemy));
     }
 
     public void AddNewPlayersObject(Transform obj)
     {
         PlayerAndAllies.Add(obj);
-        int amount = Random.Range(1, enemies.Count / 3);
+        int amount = Random.Range(0, enemies.Count / 3);
         int startIndex = Random.Range(0, enemies.Count - amount);
         for (int i = startIndex; i < startIndex + amount; i++)
         {
@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SetNewAttackPurpose(EnemyController enemy)
     {
-        int index = Random.Range(0, PlayerAndAllies.Count - 1);
+        int index = Random.Range(0, PlayerAndAllies.Count);
         enemy.AttackPurpose = PlayerAndAllies[index];
     }
     private IEnumerator ChangeAttackPurposes()
@@ -86,7 +86,7 @@ public class EnemyManager : MonoBehaviour
         while (enabled)
         {
             yield return new WaitForSeconds(Random.Range(1f, 5f));
-            int index = Random.Range(0, enemies.Count - 1);
+            int index = Random.Range(0, enemies.Count);
             SetNewAttackPurpose(enemies[index]);
         }
     }
@@ -142,7 +142,7 @@ public class EnemyManager : MonoBehaviour
 
     private void PlaySpawnSound()
     {
-        audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count - 1)]);
+        audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count)]);
     }
 
     private void OnDrawGizmosSelected()

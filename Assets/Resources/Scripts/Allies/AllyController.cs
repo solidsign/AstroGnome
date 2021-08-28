@@ -37,7 +37,6 @@ public class AllyController : MonoBehaviour
     {
         if (cooldownEnded)
         {
-
             if (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance)
             {
                 if (!moving) StartCoroutine(ComeForAttack());

@@ -13,26 +13,50 @@ public class PlayerRunToExit : MonoBehaviour
     public void StartRunning()
     {
         playerAnimator.SetBool("Run", true);
-        playerRB.useFullKinematicContacts = false;
         playerDisabler.DisableComponents();
         player = playerRB.transform;
+        if(player.position.x < holeToJumpIn.position.x)
+        {
+            if(player.rotation.eulerAngles.y > 100f)
+            {
+                player.Rotate(0f, 180f, 0f);
+            }
+        }
+        else
+        {
+            if (player.rotation.eulerAngles.y < 100f)
+            {
+                player.Rotate(0f, 180f, 0f);
+            }
+        }
+        StartCoroutine(Running());
     }
 
     private IEnumerator Running()
     {
-        Vector3 displacementPerSecond = holeToJumpIn.position - player.position;
+        Vector3 displacementPerSecond = (holeToJumpIn.position - player.position) / timeOfRunning;
+        Debug.Log(holeToJumpIn.position);
+        Debug.Log(player.position);
+        Debug.Log(holeToJumpIn.position - player.position);
+        Debug.Log(displacementPerSecond);
         float timer = 0f;
         bool jumped = false;
         while(timer < timeOfRunning)
         {
-            if(!jumped && timer < 0.5f)
+            if(!jumped && timeOfRunning - timer < 0.5f)
             {
                 playerAnimator.SetBool("Run", false);
                 playerAnimator.SetTrigger("Jump");
                 jumped = true;
             }
-            player.Translate(displacementPerSecond * Time.deltaTime);
+            playerRB.MovePosition(player.position + displacementPerSecond * Time.deltaTime);
+            timer += Time.deltaTime;
             yield return null;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(holeToJumpIn.position, Vector3.one);
     }
 }
