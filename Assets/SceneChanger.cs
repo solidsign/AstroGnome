@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     [SerializeField] private Animator curtain;
-    AsyncOperation op;
 
     private void Start()
     {
@@ -16,12 +15,14 @@ public class SceneChanger : MonoBehaviour
     public void NextLevel()
     {
         curtain.SetTrigger("Up");
-        op = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        var op = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         op.allowSceneActivation = false;
+        StartCoroutine(WaitForCurtain(op));
     }
 
-    public void AllowSceneActivation()
+    private IEnumerator WaitForCurtain(AsyncOperation op)
     {
+        yield return new WaitForSeconds(0.5f);
         op.allowSceneActivation = true;
     }
 

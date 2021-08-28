@@ -9,6 +9,13 @@ public class RocketFall : MonoBehaviour
     [SerializeField] private float longFallTime;
     [SerializeField] private float fastFallDistance;
     [SerializeField] private float fastFallTime;
+    [SerializeField] private AudioClip rocketFallSound;
+    [SerializeField] private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource.PlayOneShot(rocketFallSound);
+    }
 
     public void FallAnimation()
     {
@@ -31,7 +38,8 @@ public class RocketFall : MonoBehaviour
         float distancePerSec = distance / time;
         while(timer < time)
         {
-            rocket.position = rocket.position + distance * Time.deltaTime * Vector3.up;
+            rocket.position = rocket.position + distancePerSec * Time.deltaTime * Vector3.up;
+            timer += Time.deltaTime;
             yield return null;
         }
     }
