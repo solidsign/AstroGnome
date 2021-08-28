@@ -3,22 +3,24 @@ using UnityEngine;
 
 public class PlayerRunToExit : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D player;
+    [SerializeField] private Rigidbody2D playerRB;
     [SerializeField] private ComponentsDisabler playerDisabler;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Transform holeToJumpIn;
     [Range(0.4f, 2f)] [SerializeField] private float timeOfRunning;
+    private Transform player;
 
     public void StartRunning()
     {
         playerAnimator.SetBool("Run", true);
-        player.useFullKinematicContacts = false;
+        playerRB.useFullKinematicContacts = false;
         playerDisabler.DisableComponents();
+        player = playerRB.transform;
     }
 
     private IEnumerator Running()
     {
-        Vector3 displacementPerSecond = holeToJumpIn.position - player.transform.position;
+        Vector3 displacementPerSecond = holeToJumpIn.position - player.position;
         float timer = 0f;
         bool jumped = false;
         while(timer < timeOfRunning)
@@ -29,7 +31,7 @@ public class PlayerRunToExit : MonoBehaviour
                 playerAnimator.SetTrigger("Jump");
                 jumped = true;
             }
-            player.MovePosition(player.transform.position + displacementPerSecond * Time.deltaTime);
+            player.Translate(displacementPerSecond * Time.deltaTime);
             yield return null;
         }
     }
