@@ -20,6 +20,11 @@ public class SceneChanger : MonoBehaviour
         StartCoroutine(WaitForCurtain(op));
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     private IEnumerator WaitForCurtain(AsyncOperation op)
     {
         yield return new WaitForSeconds(0.5f);
