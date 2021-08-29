@@ -35,6 +35,10 @@ public class AllyController : MonoBehaviour
 
     private void Update()
     {
+        if(attackPurpose == null)
+        {
+            attackPurpose = enemies.GetRandomAliveEnemy();
+        }
         if (cooldownEnded)
         {
             if (Vector3.Distance(attackPurpose.position, transform.position) > attackDistance)
