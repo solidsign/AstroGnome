@@ -7,8 +7,6 @@ public class MenuButtons : MonoBehaviour
 {
     [SerializeField] private Animator curtain;
     [SerializeField] private Button cheatsButton;
-    [SerializeField] private AudioSource audioSource;
-
     private void Start()
     {
         curtain.SetTrigger("Stay");
@@ -27,13 +25,11 @@ public class MenuButtons : MonoBehaviour
 
     public void Cheats()
     {
-        DontDestroyOnLoad(Camera.main.gameObject);
         SceneManager.LoadScene(5);
     }
 
     public void Options()
     {
-        DontDestroyOnLoad(Camera.main.gameObject);
         SceneManager.LoadScene(6);
     }
 
@@ -45,7 +41,6 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator Wait(AsyncOperation op)
     {
         yield return new WaitForSeconds(0.5f);
-        audioSource.Stop();
         op.allowSceneActivation = true;
     }
 }

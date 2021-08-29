@@ -9,17 +9,20 @@ public class CheatFunctions : MonoBehaviour
     public void Hesoyam()
     {
         hp.RestoreHPFull();
+        PlayerPrefs.SetInt("Hesoyam", PlayerPrefs.GetInt("Hesoyam", 0) + 1);
     }
 
     public void GodMod()
     {
         hp.RestoreHPFull();
         hp.GodMod();
+        PlayerPrefs.SetInt("tgm", PlayerPrefs.GetInt("tgm", 0) + 1);
     }
 
     public void Konami()
     {
         StartCoroutine(IncreaseCombo());
+        PlayerPrefs.SetInt("konami", PlayerPrefs.GetInt("konami", 0) + 1);
     }
 
     private IEnumerator IncreaseCombo()
@@ -34,12 +37,14 @@ public class CheatFunctions : MonoBehaviour
     public void IDDQD()
     {
         hp.DealDamage(1000f);
+        PlayerPrefs.SetInt("iddqd", PlayerPrefs.GetInt("iddqd", 0) + 1);
     }
 
 
     public void IDKFA()
     {
         combo.AbsoluteComboReset();
+        PlayerPrefs.SetInt("idkfa", PlayerPrefs.GetInt("idkfa", 0) + 1);
     }
 
     public void Noclip()
@@ -49,5 +54,6 @@ public class CheatFunctions : MonoBehaviour
         {
             collider.enabled = !collider.enabled;
         }
+        PlayerPrefs.SetInt("noclip", PlayerPrefs.GetInt("noclip", 0) + 1);
     }
 }

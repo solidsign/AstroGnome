@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Scenes/Win.unity
     guid: 25b01dd4479258a4294d84019f3f7f2d
+  - enabled: 1
+    path: Assets/Resources/Scenes/Cheats.unity
+    guid: f0afdfa82dd4a704fb2603f946262622
+  - enabled: 1
+    path: Assets/Resources/Scenes/Settings.unity
+    guid: 3fa12747e62b7de49b117077f92df9ec
   m_configObjects: {}
