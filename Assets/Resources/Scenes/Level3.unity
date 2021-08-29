@@ -1447,6 +1447,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ee635ae8509fb4f92f2fd9f96ccd44, type: 3}
+--- !u!114 &254353239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 473640058196865245, guid: 80ee635ae8509fb4f92f2fd9f96ccd44,
+    type: 3}
+  m_PrefabInstance: {fileID: 241029365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732847bca1912f846b0b7d250a6ff87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &254353245 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6733708444802985716, guid: 80ee635ae8509fb4f92f2fd9f96ccd44,
+    type: 3}
+  m_PrefabInstance: {fileID: 241029365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,11 +1974,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1088314842}
-  bandit: {fileID: 0}
-  banditAnimator: {fileID: 0}
+  bandit: {fileID: 254353239}
+  banditAnimator: {fileID: 254353245}
   player: {fileID: 1614258056}
   playerAnimator: {fileID: 1614258055}
   enemyManager: {fileID: 1799473638}
+  santaAnimator: {fileID: 0}
 --- !u!1 &1038726884
 GameObject:
   m_ObjectHideFlags: 0

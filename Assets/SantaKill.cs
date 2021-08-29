@@ -10,6 +10,7 @@ public class SantaKill : MonoBehaviour
     [SerializeField] private ComponentsDisabler player;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private Animator santaAnimator;
 
     public void PlayerExpression()
     {
@@ -26,8 +27,15 @@ public class SantaKill : MonoBehaviour
     {
         text.enabled = false;
     }
+    public void ShowText()
+    {
+        text.enabled = true;
+    }
 
-
+    public void SantaDie()
+    {
+        santaAnimator.SetTrigger("Dead");
+    }
     public void DisableComponents()
     {
         bandit.DisableComponents();
