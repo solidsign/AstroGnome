@@ -58,6 +58,27 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void StopAllEnemies()
+    {
+        foreach (var enemy in enemies)
+        {
+            enemy.GetComponent<ComponentsDisabler>().DisableComponents();
+        }
+
+    }
+
+    public void StopAllPlayersGuys()
+    {
+        foreach (var guy in PlayerAndAllies)
+        {
+            ComponentsDisabler componentsDisabler;
+            if(guy.TryGetComponent<ComponentsDisabler>(out componentsDisabler))
+            {
+                componentsDisabler.DisableComponents();
+            }
+        }
+
+    }
     private IEnumerator DeleteEnemyFromScene(EnemyController enemy)
     {
         yield return new WaitForSeconds(5f);

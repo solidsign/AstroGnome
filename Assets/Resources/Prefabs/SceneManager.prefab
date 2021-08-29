@@ -216,6 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curtain: {fileID: 6303209222348134985}
+  button: {fileID: 0}
+  deathMusic: {fileID: 8300000, guid: 739a5c235fff5d144b742e0654b65477, type: 3}
+  enemies: {fileID: 0}
 --- !u!1 &6303209221978199353
 GameObject:
   m_ObjectHideFlags: 0

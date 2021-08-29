@@ -28,7 +28,7 @@ public class RocketHP : AllyHealthHandler
         material.SetColor("_color", baseColor * intensity);
         if (hp <= 0f)
         {
-            // TODO: LOSE();
+            sceneChanger.Lose();
             return;
         }
         audioSource.PlayOneShot(hitSound);

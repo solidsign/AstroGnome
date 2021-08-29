@@ -14,7 +14,7 @@ public class HealthInterface : MonoBehaviour
     private Vignette vignette;
     private ChromaticAberration chromaticAberration;
     private AudioSource audioSource;
-    void Start()
+    private void Start()
     {
         volume = GetComponent<Volume>();
         volume.profile.TryGet<Vignette>(out vignette);
@@ -22,11 +22,16 @@ public class HealthInterface : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
+    private void Update()
     {
         float intensity = intensityCurve.Evaluate(player.HP / maxHP);
         chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, maxChromaticAberationIntensity * intensity, intensityChangeSpeed * Time.deltaTime) ;
         vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, maxVignetteIntensity * intensity, intensityChangeSpeed * Time.deltaTime);
         audioSource.volume = intensity == 1f ? 0f : intensity;
+    }
+
+    public void StopMusic()
+    {
+        audioSource.Stop();
     }
 }

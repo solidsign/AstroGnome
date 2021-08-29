@@ -4,6 +4,7 @@ using UnityEngine;
 public class HealthHandler : MonoBehaviour
 {
     [SerializeField] protected float hp;
+    [SerializeField] protected SceneChanger sceneChanger;
     protected ComponentsDisabler disabler;
     protected Animator animator;
     private ComboHandler combo;
@@ -53,6 +54,7 @@ public class HealthHandler : MonoBehaviour
 
     private void Die()
     {
+        sceneChanger.Lose();
         dead = true;
         disabler.DisableComponents();
         animator.SetTrigger("Dead");
