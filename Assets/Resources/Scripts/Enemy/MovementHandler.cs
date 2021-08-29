@@ -5,7 +5,7 @@ public class MovementHandler : MonoBehaviour
     private float speed;
     private Vector2 velocity = Vector2.zero;
     private Rigidbody2D rb;
-    private bool lookRight = true;
+    [SerializeField] private bool lookRight = true;
     public float Speed { set => speed = value; }
 
     public Vector2 Direction
