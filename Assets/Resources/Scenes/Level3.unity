@@ -1645,7 +1645,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0bf559018eac19942b95d11fbefefbb3, type: 3}
+      objectReference: {fileID: 8300000, guid: 5824969f5d818f64b979890417441759, type: 3}
     - target: {fileID: 6303209221685223777, guid: 4dd8fea46080e7d47a2203022d9113d8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1731,6 +1731,11 @@ PrefabInstance:
       propertyPath: rocketAnimator
       value: 
       objectReference: {fileID: 4254137904178572315}
+    - target: {fileID: 6303209221978199358, guid: 4dd8fea46080e7d47a2203022d9113d8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.54
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd8fea46080e7d47a2203022d9113d8, type: 3}
 --- !u!114 &762106790 stripped
@@ -4034,8 +4039,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
         type: 3}
+      propertyPath: spawnEmmision
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
+        type: 3}
       propertyPath: sounds.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
+        type: 3}
+      propertyPath: amountOfStartSpawn
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8514181761807618338, guid: 01838fa44eae15b40b1401192d0766c1,
         type: 3}
